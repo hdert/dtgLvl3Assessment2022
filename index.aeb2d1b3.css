@@ -133,11 +133,6 @@ svg {
   font: inherit;
   -webkit-appearance: button;
 }
-
-summary {
-  display: list-item;
-  cursor: pointer;
-}
 /* Helpers */
 
 /* Utilities */
