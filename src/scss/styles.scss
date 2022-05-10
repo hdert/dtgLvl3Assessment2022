@@ -1,2 +1,75 @@
 @use "_modules/variables" as *;
 @use "_modules/mixins" as *;
+
+// Header css
+#headerImage {
+  background: $highlight-two url(../img/logo.png) repeat left top;
+  height: calc(66vh - 56px);
+  background-size: 10vw;
+}
+
+$heroText-start-animation-x: 160px;
+$heroText-start-animation-y: 120px;
+
+#heroTextContainer {
+  background-color: rgba(255, 255, 255, 0.588);
+  animation: heroTextContainer-text-shadow-move 1.5s ease-out;
+}
+
+#heroText {
+  text-shadow: 5px 5px $highlight-two;
+  font-size: 10vh;
+  animation: heroText-text-shadow-move 1.5s ease-out,
+    heroText-text-move 1.5s ease-out;
+  transition: 1s ease-out;
+}
+
+// Hero text animations
+
+#heroText:hover,
+#heroText:focus {
+  text-shadow: 10px 20px $highlight-two;
+  color: rgba(0, 0, 0, 0);
+}
+
+@keyframes heroText-text-move {
+  0% {
+    transform: translate(
+      -$heroText-start-animation-x,
+      -$heroText-start-animation-y
+    );
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes heroText-text-shadow-move {
+  0% {
+    text-shadow: $heroText-start-animation-x $heroText-start-animation-y
+      $highlight-two;
+    color: rgba(0, 0, 0, 0);
+  }
+  75% {
+    color: rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    text-shadow: 5px 5px $highlight-two;
+    color: black;
+  }
+}
+
+@keyframes heroTextContainer-text-shadow-move {
+  0% {
+    transform: translate(
+      $heroText-start-animation-x,
+      $heroText-start-animation-y
+    );
+  }
+
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
