@@ -1,0 +1,22 @@
+include links.pug
+
+mixin header(activePage)
+  #headerImage.w-100
+    #heroTextContainer.w-100.h-100.align-items-center.justify-content-center.d-flex
+      div
+        h1#heroText.align-middle.m-0.fw-bold.text-center What Lies Beneath
+  nav.navbar.navbar-expand.navbar-dark.bg-primary.sticky-top.container-fluid 
+    #navbarContent.collapse.navbar-collapse.justify-content-center
+      .navbar-nav 
+        +nav-link("index", activePage, "Home")
+        +nav-link("subscribe", activePage, "Updates")
+        +nav-link("artists", activePage, "Artists")
+    button.navbar-toggler(
+      type="button",
+      data-bs-toggle="collapse",
+      data-bs-target="#navbarContent",
+      aria-controls="navbarContent",
+      aria-label="Toggle Drop-Down Navigation",
+      aria-expanded="false"
+    )
+      span.navbar-toggler-icon
