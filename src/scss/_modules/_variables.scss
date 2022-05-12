@@ -4,9 +4,14 @@ $highlight-one: #26466f;
 $body-bg: $highlight-two;
 $primary: $highlight-one;
 $enable-gradients: true;
+$navbar-dark-hover-color: #fff;
+$navbar-dark-color: rgba(#fff, 0.75);
+$carousel-control-opacity: 1;
+$carousel-control-hover-opacity: 0.75;
 $font-family-sans-serif: "Montserrat", system-ui, -apple-system, "Segoe UI",
   Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
   "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$input-bg: #fff;
 /* Bootstrap */
 /* Configuration */
 @import "../../../node_modules/bootstrap/scss/functions";
@@ -34,12 +39,12 @@ $font-family-sans-serif: "Montserrat", system-ui, -apple-system, "Segoe UI",
 // @import "../../../node_modules/bootstrap/scss/breadcrumb";
 // @import "../../../node_modules/bootstrap/scss/pagination";
 // @import "../../../node_modules/bootstrap/scss/badge";
-// @import "../../../node_modules/bootstrap/scss/alert";
+@import "../../../node_modules/bootstrap/scss/alert";
 // @import "../../../node_modules/bootstrap/scss/progress";
 // @import "../../../node_modules/bootstrap/scss/list-group";
-// @import "../../../node_modules/bootstrap/scss/close";
+@import "../../../node_modules/bootstrap/scss/close";
 // @import "../../../node_modules/bootstrap/scss/toasts";
-// @import "../../../node_modules/bootstrap/scss/modal";
+@import "../../../node_modules/bootstrap/scss/modal";
 // @import "../../../node_modules/bootstrap/scss/tooltip";
 // @import "../../../node_modules/bootstrap/scss/popover";
 @import "../../../node_modules/bootstrap/scss/carousel";
