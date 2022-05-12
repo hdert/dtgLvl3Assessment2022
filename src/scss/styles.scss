@@ -90,3 +90,16 @@ $heroText-start-animation-y: 120px;
 .carousel-caption {
   backdrop-filter: blur(4px);
 }
+
+.carousel-item img {
+  object-fit: cover;
+  height: calc(100vh - 56px);
+  margin: auto;
+}
+
+@include gen-carousel-image-center(
+  50% 38.72%,
+  50% 46.79%,
+  50% 34.88%,
+  50% 29.76%
+);
