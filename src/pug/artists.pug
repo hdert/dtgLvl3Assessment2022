@@ -1,3 +1,39 @@
+mixin carousel-indicator-generator(...slides)
+  - var n = 0;
+  each slide in slides
+    if n == 0
+      button.active(
+        type="button",
+        data-bs-target="#carousel",
+        data-bs-slide-to=n,
+        aria-current="true",
+        aria-label=slide
+      )
+    else
+      button(
+        type="button",
+        data-bs-target="#carousel",
+        data-bs-slide-to=n,
+        aria-label=slide
+      )
+    - n++;
+mixin carousel-item-generator(...items)
+  - var n = 0;
+  each item in items 
+    if n == 0
+      .carousel-item.active(id="carousel-item-" + (n + 1))
+        img.d-block.w-100(src=item[0], alt=item[1])
+        .carousel-caption.d-none.d-md-block
+          h5= item[2]
+          p= item[3]
+    else
+      .carousel-item(id="carousel-item-" + (n + 1))
+        img.d-block.w-100(src=item[0], alt=item[1])
+        .carousel-caption.d-none.d-md-block
+          h5= item[2]
+          p= item[3]
+    - n++;
+
 doctype html 
 html(lang="en")
   include ../includes/head.pug
@@ -5,8 +41,33 @@ html(lang="en")
   body.min-vh-100.d-flex.flex-column
     include ../includes/header.pug
     +header("artists")
-    .container.my-3
-      p text stuff
+    #carousel.carousel.slide.vh-100(data-bs-ride="carousel")
+      .carousel-indicators
+        +carousel-indicator-generator("Slide of Jack Pott", "Slide of Kay Oss", "Slide of Barry D. Hatchett", "Slide of Anita Room")
+      .carousel-inner 
+        +carousel-item-generator(["../img/Jack_Pott.jpg", "Portrait of Jack Pott", "Jack Pott", "Jack has been a creator his whole life. His mother reports \"Our fridge was always covered with the doodlings and drawings that Jack created as a young boy. As he got older, our fridge just didn't do justice to his creations!\" Jack has had his images showcased in a number of art magazines. He currently is employed full time at an Auckland Photographic Art Studio for his creativity."], ["../img/Kay_Oss.jpg", "Portrait of Kay Oss", "Kay Oss", "Kay describes herself as a 'meddler of images'. She has always treated her ability to create an altered reality as a hobby activity as opposed to a career option. Kay works as a Photography teacher and encourages her students to push the boundaries of reality by stretching their imaginations with her own work."], ["../img/Barry_Hatchett.jpg", "Portrait of Barry D. Hatchett", "Barry D. Hatchett", "With a larger than life personality, Barry stretches reality to new extremes with his images. He considers himself an 'unreal realist'. Prior to the digital world that he currently operates in, Barry created many infamous double exposure images the old fashioned way. Barry is retired, but that hasn't slowed him down in the 'creativity' department."], ["../img/Anita_Room.jpg", "Portrait of Anita Room", "Anita Room", "Anita has a flare for creating images that tend towards fantasy. Her creations take the viewer to new worlds where they are immersed in colours and sparkles. She has created many illustrations for children's books over the years and is in full time employment as an illustrator. "])
+      button.carousel-control-prev(
+        type="button",
+        data-bs-target="#carousel",
+        data-bs-slide="prev"
+      )
+        span.carousel-control-prev-icon(aria-hidden="true")
+        span.visually-hidden Previous
+      button.carousel-control-next(
+        type="button",
+        data-bs-target="#carousel",
+        data-bs-slide="next"
+      )
+        span.carousel-control-next-icon(aria-hidden="true")
+        span.visually-hidden Next
+        //- .carousel-item.active
+        //-   img.d-block.w-100(
+        //-     src="../img/Jack_Pott.jpg",
+        //-     alt="Portrait of Jack Pott"
+        //-   )
+        //-   .carousel-caption.d-none.d-md-block
+        //-     h5 Jack Pott
+        //-     p Jack has been a creator his whole life. His mother reports "Our fridge was always covered with the doodlings and drawings that Jack created as a young boy. As he got older, our fridge just didn't do justice to his creations!" Jack has had his images showcased in a number of art magazines. He currently is employed full time at an Auckland Photographic Art Studio for his creativity.
 
     include ../includes/footer.pug
     +footer
