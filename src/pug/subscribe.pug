@@ -1,3 +1,26 @@
+//- From https://github.com/hdert/BeautifulNewZealandWebsite/blob/main/src/pug/contact.pug
+
+mixin formInput(codeName, FrontEndName, placeholder, type, required)
+  if required == true
+    .mb-3.form-floating
+      input.form-control(
+        id=codeName,
+        name=codeName,
+        type=type,
+        placeholder=placeholder,
+        required
+      )
+      label.form-label(for=codeName)= FrontEndName
+  else
+    .mb-3.form-floating
+      input.form-control(
+        id=codeName,
+        name=codeName,
+        type=type,
+        placeholder=placeholder
+      )
+      label.form-label(for=codeName)= FrontEndName
+
 doctype html 
 html(lang="en")
   include ../includes/head.pug
@@ -6,7 +29,40 @@ html(lang="en")
     include ../includes/header.pug
     +header("subscribe")
     .container.my-3
-      p text stuff
+      h1 Subscribe for updates
+      p Enter your contact details here to subscribe for updates about our exhibition.
+      .d-flex.justify-content-center
+        form.col-8(onsubmit="return false")
+          +formInput("firstname", "First Name", "Joe", "text", true)
+          +formInput("lastname", "Last Name", "Smith", "text", true)
+          +formInput("email", "Email", "joesmith@example.com", "email", true)
+          +formInput("phonenumber", "Phone Number", "027123456789", "tel", false)
+          +formInput("dateofbirth", "Date of Birth", "2000-01-01", "date", false)
+          .mb-3.form-check
+            input#agreetotos.form-check-input(
+              type="checkbox",
+              name="agreetotos",
+              required
+            )
+            label(for="#agreetotos") I agree to the
+            |
+            |
+            a#tos(href="#", onclick="tosHandler();") Terms of Service
+          button#submitButton.btn.btn-primary(
+            type="submit",
+            value="Submit",
+            onsubmit="return formHandler();"
+          ) Submit
+      #modal.modal.fade(tabindex="-1")
+        .modal-dialog
+          .modal-content
+            .modal-header
+              button.btn-close(
+                type="button",
+                data-bs-dismiss="modal",
+                aria-label="Close"
+              )
+            #modalBody.modal-body
 
     include ../includes/footer.pug
     +footer
