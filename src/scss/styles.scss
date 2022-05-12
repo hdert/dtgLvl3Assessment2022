@@ -3,9 +3,9 @@
 
 // Header css
 #headerImage {
-  background: $highlight-two url(../img/logo.png) repeat left top;
+  background: $highlight-two url(../img/logo.png) center space;
   height: calc(66vh - 56px);
-  background-size: 10vw;
+  background-size: 192px;
 }
 
 $heroText-start-animation-x: 160px;
@@ -14,11 +14,14 @@ $heroText-start-animation-y: 120px;
 #heroTextContainer {
   background-color: rgba(255, 255, 255, 0.588);
   animation: heroTextContainer-text-shadow-move 1.5s ease-out;
+  backdrop-filter: blur(4px);
+  border-radius: 100px 100px 10px;
+  transition: 1s ease-out;
 }
 
 #heroText {
   text-shadow: 5px 5px $highlight-two;
-  font-size: 10vh;
+  font-size: 7vw;
   animation: heroText-text-shadow-move 1.5s ease-out,
     heroText-text-move 1.5s ease-out;
   transition: 1s ease-out;
@@ -30,6 +33,11 @@ $heroText-start-animation-y: 120px;
 #heroText:focus {
   text-shadow: 10px 20px $highlight-two;
   color: rgba(0, 0, 0, 0);
+}
+
+#heroTextContainer:hover,
+#heroTextContainer:focus {
+  border-radius: 100px 100px 100px 10px;
 }
 
 @keyframes heroText-text-move {
@@ -72,4 +80,13 @@ $heroText-start-animation-y: 120px;
   100% {
     transform: translate(0px, 0px);
   }
+}
+
+// Artist page
+
+// Values generated using https://codepen.io/yaphi1/live/oNbEqGV
+@include gen-carousel-text-opacities(0.463 0.404 0.529 0.518);
+
+.carousel-caption {
+  backdrop-filter: blur(4px);
 }
