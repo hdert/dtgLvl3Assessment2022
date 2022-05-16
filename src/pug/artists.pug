@@ -22,16 +22,19 @@ mixin carousel-item-generator(...items)
   each item in items 
     if n == 0
       .carousel-item.active(id="carousel-item-" + (n + 1))
-        img.d-block.w-100(src=item[0], alt=item[1])
         .carousel-caption.d-block.px-3
           h5= item[2]
           p.d-none.d-md-block= item[3]
-    else
+        img.d-block.w-100(src=item[0], alt=item[1])
+    else if item.length == 2
       .carousel-item(id="carousel-item-" + (n + 1))
         img.d-block.w-100(src=item[0], alt=item[1])
+    else
+      .carousel-item(id="carousel-item-" + (n + 1))
         .carousel-caption.d-block.px-3
           h5= item[2]
           p.d-none.d-md-block= item[3]
+        img.d-block.w-100(src=item[0], alt=item[1])
     - n++;
 
 doctype html 
@@ -43,9 +46,9 @@ html(lang="en")
     +header("artists")
     #carousel.carousel.slide(data-bs-ride="carousel")
       .carousel-indicators
-        +carousel-indicator-generator("Slide of Jack Pott", "Slide of Kay Oss", "Slide of Barry D. Hatchett", "Slide of Anita Room")
+        +carousel-indicator-generator("Slide of Jack Pott", "Slide of Kay Oss", "Slide of Barry D. Hatchett", "Slide of Anita Room", "Slide of Red Butterfly", "Slide of Yellow Butterfly", "Slide of Blue Butterfly", "Slide of Lioness With City in Background", "Slide of Outline of Person", "Slide of Death Road", "Slide of Shark", "Slide of People Observing Jellyfish Tank", "Slide of People", "Slide of Windsurfer in Narrow European Streets")
       .carousel-inner 
-        +carousel-item-generator(["../img/Jack_Pott.jpg", "Portrait of Jack Pott", "Jack Pott", "Jack has been a creator his whole life. His mother reports \"Our fridge was always covered with the doodlings and drawings that Jack created as a young boy. As he got older, our fridge just didn't do justice to his creations!\" Jack has had his images showcased in a number of art magazines. He currently is employed full time at an Auckland Photographic Art Studio for his creativity."], ["../img/Kay_Oss.jpg", "Portrait of Kay Oss", "Kay Oss", "Kay describes herself as a 'meddler of images'. She has always treated her ability to create an altered reality as a hobby activity as opposed to a career option. Kay works as a Photography teacher and encourages her students to push the boundaries of reality by stretching their imaginations with her own work."], ["../img/Barry_Hatchett.jpg", "Portrait of Barry D. Hatchett", "Barry D. Hatchett", "With a larger than life personality, Barry stretches reality to new extremes with his images. He considers himself an 'unreal realist'. Prior to the digital world that he currently operates in, Barry created many infamous double exposure images the old fashioned way. Barry is retired, but that hasn't slowed him down in the 'creativity' department."], ["../img/Anita_Room.jpg", "Portrait of Anita Room", "Anita Room", "Anita has a flare for creating images that tend towards fantasy. Her creations take the viewer to new worlds where they are immersed in colours and sparkles. She has created many illustrations for children's books over the years and is in full time employment as an illustrator. "])
+        +carousel-item-generator(["../img/Jack_Pott.jpg", "Portrait of Jack Pott", "Jack Pott", "Jack has been a creator his whole life. His mother reports \"Our fridge was always covered with the doodlings and drawings that Jack created as a young boy. As he got older, our fridge just didn't do justice to his creations!\" Jack has had his images showcased in a number of art magazines. He currently is employed full time at an Auckland Photographic Art Studio for his creativity."], ["../img/Kay_Oss.jpg", "Portrait of Kay Oss", "Kay Oss", "Kay describes herself as a 'meddler of images'. She has always treated her ability to create an altered reality as a hobby activity as opposed to a career option. Kay works as a Photography teacher and encourages her students to push the boundaries of reality by stretching their imaginations with her own work."], ["../img/Barry_Hatchett.jpg", "Portrait of Barry D. Hatchett", "Barry D. Hatchett", "With a larger than life personality, Barry stretches reality to new extremes with his images. He considers himself an 'unreal realist'. Prior to the digital world that he currently operates in, Barry created many infamous double exposure images the old fashioned way. Barry is retired, but that hasn't slowed him down in the 'creativity' department."], ["../img/Anita_Room.jpg", "Portrait of Anita Room", "Anita Room", "Anita has a flare for creating images that tend towards fantasy. Her creations take the viewer to new worlds where they are immersed in colours and sparkles. She has created many illustrations for children's books over the years and is in full time employment as an illustrator. "], ["../img/butterfly1.png", "Red Butterfly"], ["../img/butterfly2.png", "Yellow Butterfly"], ["../img/butterfly3.png", "Blue Butterfly"], ["../img/LionessDoubleExposure.jpg", "Lioness With City in the Background"], ["../img/Outlines.jpg", "Outline of Man in Old Structure With Outline of Cat in Corner"], ["../img/Road_to_Nowhere.jpg", "Graffitied Road with Red Sky, Birds, and Shipwreck Surrounded by Splashing Water"], ["../img/Shark_In_Wave.jpg", "Shark in Wave Facing Towards Camera"], ["../img/silhouette1.jpg", "Silhouette of People in Front of Jellyfish"], ["../img/silhouette2.jpg", "Silhouette of People in front of Sunrise"], ["../img/Windsurfer2.jpg", "Person Windsurfing Down Narrow European Street"])
       button.carousel-control-prev(
         type="button",
         data-bs-target="#carousel",

@@ -4,6 +4,7 @@
   @for $number from 1 through list.length($opacities) {
     #carousel-item-#{$number} > .carousel-caption {
       background-color: rgba(0, 0, 0, list.nth($opacities, $number));
+      backdrop-filter: blur(4px);
     }
   }
 }
