@@ -1410,23 +1410,33 @@ textarea.form-control {
 }
 #carousel-item-1 > .carousel-caption {
   background-color: rgba(0, 0, 0, 0.463);
-}
-#carousel-item-2 > .carousel-caption {
-  background-color: rgba(0, 0, 0, 0.404);
-}
-#carousel-item-3 > .carousel-caption {
-  background-color: rgba(0, 0, 0, 0.529);
-}
-#carousel-item-4 > .carousel-caption {
-  background-color: rgba(0, 0, 0, 0.518);
-}
-.carousel-caption {
   -webkit-backdrop-filter: blur(4px);
           backdrop-filter: blur(4px);
 }
-.carousel-item img {
+#carousel-item-2 > .carousel-caption {
+  background-color: rgba(0, 0, 0, 0.404);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+}
+#carousel-item-3 > .carousel-caption {
+  background-color: rgba(0, 0, 0, 0.529);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+}
+#carousel-item-4 > .carousel-caption {
+  background-color: rgba(0, 0, 0, 0.518);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+}
+.carousel-item > .carousel-caption + img {
   -o-object-fit: cover;
      object-fit: cover;
+  height: calc(100vh - 56px);
+  margin: auto;
+}
+.carousel-item > img {
+  -o-object-fit: contain;
+     object-fit: contain;
   height: calc(100vh - 56px);
   margin: auto;
 }
