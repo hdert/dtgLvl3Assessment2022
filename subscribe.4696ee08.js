@@ -64,7 +64,7 @@ parcelRequire.register("hSYfs", function(module, exports) {
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */ (function(global, factory) {
-    typeof module.exports === 'object' && "object" !== 'undefined' ? module.exports = factory() : typeof define === 'function' && define.amd ? define(factory) : (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.EventHandler = factory());
+    module.exports = factory();
 })(module.exports, function() {
     'use strict';
     /**
@@ -89,8 +89,7 @@ parcelRequire.register("hSYfs", function(module, exports) {
    */ const namespaceRegex = /[^.]*(?=\..*)\.|.*/;
     const stripNameRegex = /\..*/;
     const stripUidRegex = /::\d+$/;
-    const eventRegistry = {
-    }; // Events storage
+    const eventRegistry = {}; // Events storage
     let uidEvent = 1;
     const customEvents = {
         mouseenter: 'mouseover',
@@ -155,8 +154,7 @@ parcelRequire.register("hSYfs", function(module, exports) {
     function getEvent(element) {
         const uid = getUidEvent(element);
         element.uidEvent = uid;
-        eventRegistry[uid] = eventRegistry[uid] || {
-        };
+        eventRegistry[uid] = eventRegistry[uid] || {};
         return eventRegistry[uid];
     }
     function bootstrapHandler(element, fn) {
@@ -212,7 +210,7 @@ parcelRequire.register("hSYfs", function(module, exports) {
         // this prevents the handler from being dispatched the same way as mouseover or mouseout does
         if (customEventsRegex.test(originalTypeEvent)) {
             const wrapFn = (fn)=>{
-                return function wrapFn(event) {
+                return function(event) {
                     if (!event.relatedTarget || event.relatedTarget !== event.delegateTarget && !event.delegateTarget.contains(event.relatedTarget)) return fn.call(this, event);
                 };
             };
@@ -221,8 +219,7 @@ parcelRequire.register("hSYfs", function(module, exports) {
         }
         const [delegation, originalHandler, typeEvent] = normalizeParams(originalTypeEvent, handler, delegationFn);
         const events = getEvent(element);
-        const handlers = events[typeEvent] || (events[typeEvent] = {
-        });
+        const handlers = events[typeEvent] || (events[typeEvent] = {});
         const previousFn = findHandler(handlers, originalHandler, delegation ? handler : null);
         if (previousFn) {
             previousFn.oneOff = previousFn.oneOff && oneOff;
@@ -244,8 +241,7 @@ parcelRequire.register("hSYfs", function(module, exports) {
         delete events[typeEvent][fn.uidEvent];
     }
     function removeNamespacedHandlers(element, events, typeEvent, namespace) {
-        const storeElementEvent = events[typeEvent] || {
-        };
+        const storeElementEvent = events[typeEvent] || {};
         Object.keys(storeElementEvent).forEach((handlerKey)=>{
             if (handlerKey.includes(namespace)) {
                 const event = storeElementEvent[handlerKey];
@@ -280,8 +276,7 @@ parcelRequire.register("hSYfs", function(module, exports) {
             if (isNamespace) Object.keys(events).forEach((elementEvent)=>{
                 removeNamespacedHandlers(element, events, elementEvent, originalTypeEvent.slice(1));
             });
-            const storeElementEvent = events[typeEvent] || {
-            };
+            const storeElementEvent = events[typeEvent] || {};
             Object.keys(storeElementEvent).forEach((keyHandlers)=>{
                 const handlerKey = keyHandlers.replace(stripUidRegex, '');
                 if (!inNamespace || originalTypeEvent.includes(handlerKey)) {
@@ -340,7 +335,7 @@ parcelRequire.register("1j4M2", function(module, exports) {
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */ (function(global, factory) {
-    typeof module.exports === 'object' && "object" !== 'undefined' ? module.exports = factory() : typeof define === 'function' && define.amd ? define(factory) : (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Manipulator = factory());
+    module.exports = factory();
 })(module.exports, function() {
     'use strict';
     /**
@@ -367,10 +362,8 @@ parcelRequire.register("1j4M2", function(module, exports) {
             element.removeAttribute(`data-bs-${normalizeDataKey(key)}`);
         },
         getDataAttributes (element) {
-            if (!element) return {
-            };
-            const attributes = {
-            };
+            if (!element) return {};
+            const attributes = {};
             Object.keys(element.dataset).filter((key)=>key.startsWith('bs')
             ).forEach((key)=>{
                 let pureKey = key.replace(/^bs/, '');
@@ -407,7 +400,7 @@ parcelRequire.register("1x0pq", function(module, exports) {
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */ (function(global, factory) {
-    typeof module.exports === 'object' && "object" !== 'undefined' ? module.exports = factory() : typeof define === 'function' && define.amd ? define(factory) : (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.SelectorEngine = factory());
+    module.exports = factory();
 })(module.exports, function() {
     'use strict';
     /**
@@ -505,10 +498,7 @@ parcelRequire.register("f323N", function(module, exports) {
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */ (function(global, factory) {
-    typeof module.exports === 'object' && "object" !== 'undefined' ? module.exports = factory((parcelRequire("l6JP8")), (parcelRequire("hSYfs"))) : typeof define === 'function' && define.amd ? define([
-        './dom/data',
-        './dom/event-handler'
-    ], factory) : (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Base = factory(global.Data, global.EventHandler));
+    module.exports = factory((parcelRequire("l6JP8")), (parcelRequire("hSYfs")));
 })(module.exports, function(Data, EventHandler) {
     'use strict';
     const _interopDefaultLegacy = (e)=>e && typeof e === 'object' && 'default' in e ? e : {
@@ -596,8 +586,7 @@ parcelRequire.register("f323N", function(module, exports) {
         /** Static */ static getInstance(element) {
             return Data__default.default.get(getElement(element), this.DATA_KEY);
         }
-        static getOrCreateInstance(element, config = {
-        }) {
+        static getOrCreateInstance(element, config = {}) {
             return this.getInstance(element) || new this(element, typeof config === 'object' ? config : null);
         }
         static get VERSION() {
@@ -629,7 +618,7 @@ parcelRequire.register("l6JP8", function(module, exports) {
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */ (function(global, factory) {
-    typeof module.exports === 'object' && "object" !== 'undefined' ? module.exports = factory() : typeof define === 'function' && define.amd ? define(factory) : (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Data = factory());
+    module.exports = factory();
 })(module.exports, function() {
     'use strict';
     /**
@@ -816,10 +805,8 @@ var $euW85 = parcelRequire("euW85");
 function $d2fcefd2d262a544$var$applyStyles(_ref) {
     var state = _ref.state;
     Object.keys(state.elements).forEach(function(name1) {
-        var style = state.styles[name1] || {
-        };
-        var attributes = state.attributes[name1] || {
-        };
+        var style = state.styles[name1] || {};
+        var attributes = state.attributes[name1] || {};
         var element = state.elements[name1]; // arrow is optional + virtual elements
         if (!$euW85.isHTMLElement(element) || !$jdMql.default(element)) return;
          // Flow doesn't support to extend this property, but it's the most
@@ -845,8 +832,7 @@ function $d2fcefd2d262a544$var$effect(_ref2) {
         arrow: {
             position: 'absolute'
         },
-        reference: {
-        }
+        reference: {}
     };
     Object.assign(state.elements.popper.style, initialStyles.popper);
     state.styles = initialStyles;
@@ -854,14 +840,12 @@ function $d2fcefd2d262a544$var$effect(_ref2) {
     return function() {
         Object.keys(state.elements).forEach(function(name) {
             var element = state.elements[name];
-            var attributes = state.attributes[name] || {
-            };
+            var attributes = state.attributes[name] || {};
             var styleProperties = Object.keys(state.styles.hasOwnProperty(name) ? state.styles[name] : initialStyles[name]); // Set all values to an empty string to unset them
             var style1 = styleProperties.reduce(function(style, property) {
                 style[property] = '';
                 return style;
-            }, {
-            }); // arrow is optional + virtual elements
+            }, {}); // arrow is optional + virtual elements
             if (!$euW85.isHTMLElement(element) || !$jdMql.default(element)) return;
             Object.assign(element.style, style1);
             Object.keys(attributes).forEach(function(attribute) {
@@ -953,8 +937,7 @@ var $8uMLG = parcelRequire("8uMLG");
 var $88cGx = parcelRequire("88cGx");
 
 var $24917766341f5a7f$var$toPaddingObject = function toPaddingObject(padding, state) {
-    padding = typeof padding === 'function' ? padding(Object.assign({
-    }, state.rects, {
+    padding = typeof padding === 'function' ? padding(Object.assign({}, state.rects, {
         placement: state.placement
     })) : padding;
     return $32Gl7.default(typeof padding !== 'number' ? padding : $8uMLG.default(padding, $88cGx.basePlacements));
@@ -987,8 +970,7 @@ function $24917766341f5a7f$var$arrow(_ref) {
     var center = clientSize / 2 - arrowRect[len] / 2 + centerToReference;
     var offset = $7oIqj.within(min, center, max); // Prevents breaking syntax highlighting...
     var axisProp = axis;
-    state.modifiersData[name] = (_state$modifiersData$ = {
-    }, _state$modifiersData$[axisProp] = offset, _state$modifiersData$.centerOffset = offset - center, _state$modifiersData$);
+    state.modifiersData[name] = (_state$modifiersData$ = {}, _state$modifiersData$[axisProp] = offset, _state$modifiersData$.centerOffset = offset - center, _state$modifiersData$);
 }
 function $24917766341f5a7f$var$effect(_ref2) {
     var state = _ref2.state, options = _ref2.options;
@@ -1143,6 +1125,7 @@ function $bd9ff1d72d573396$var$getContainingBlock(element) {
         if (elementCss.position === 'fixed') return null;
     }
     var currentNode = $4czsO.default(element);
+    if ($euW85.isShadowRoot(currentNode)) currentNode = currentNode.host;
     while($euW85.isHTMLElement(currentNode) && [
         'html',
         'body'
@@ -1260,8 +1243,7 @@ $parcel$export(module.exports, "default", function () { return $237266c59e44ca85
 
 var $h7qDH = parcelRequire("h7qDH");
 function $237266c59e44ca85$export$2e2bcd8739ae039(paddingObject) {
-    return Object.assign({
-    }, $h7qDH.default(), paddingObject);
+    return Object.assign({}, $h7qDH.default(), paddingObject);
 }
 
 });
@@ -1287,8 +1269,7 @@ function $62f6f46052ba1ffd$export$2e2bcd8739ae039(value, keys) {
     return keys.reduce(function(hashMap, key) {
         hashMap[key] = value;
         return hashMap;
-    }, {
-    });
+    }, {});
 }
 
 });
@@ -1361,13 +1342,13 @@ function $1546e9ddfea08d77$export$378fa78a8fea596f(_ref2) {
         } // $FlowFixMe[incompatible-cast]: force type refinement, we compare offsetParent with window above, but Flow doesn't detect it
         if (placement === $88cGx.top || (placement === $88cGx.left || placement === $88cGx.right) && variation === $88cGx.end) {
             sideY = $88cGx.bottom;
-            var offsetY = isFixed && win.visualViewport ? win.visualViewport.height : offsetParent[heightProp];
+            var offsetY = isFixed && offsetParent === win && win.visualViewport ? win.visualViewport.height : offsetParent[heightProp];
             y -= offsetY - popperRect.height;
             y *= gpuAcceleration ? 1 : -1;
         }
         if (placement === $88cGx.left || (placement === $88cGx.top || placement === $88cGx.bottom) && variation === $88cGx.end) {
             sideX = $88cGx.right;
-            var offsetX = isFixed && win.visualViewport ? win.visualViewport.width : offsetParent[widthProp];
+            var offsetX = isFixed && offsetParent === win && win.visualViewport ? win.visualViewport.width : offsetParent[widthProp];
             x -= offsetX - popperRect.width;
             x *= gpuAcceleration ? 1 : -1;
         }
@@ -1386,13 +1367,9 @@ function $1546e9ddfea08d77$export$378fa78a8fea596f(_ref2) {
     y = _ref4.y;
     if (gpuAcceleration) {
         var _Object$assign;
-        return Object.assign({
-        }, commonStyles, (_Object$assign = {
-        }, _Object$assign[sideY] = hasY ? '0' : '', _Object$assign[sideX] = hasX ? '0' : '', _Object$assign.transform = (win.devicePixelRatio || 1) <= 1 ? "translate(" + x + "px, " + y + "px)" : "translate3d(" + x + "px, " + y + "px, 0)", _Object$assign));
+        return Object.assign({}, commonStyles, (_Object$assign = {}, _Object$assign[sideY] = hasY ? '0' : '', _Object$assign[sideX] = hasX ? '0' : '', _Object$assign.transform = (win.devicePixelRatio || 1) <= 1 ? "translate(" + x + "px, " + y + "px)" : "translate3d(" + x + "px, " + y + "px, 0)", _Object$assign));
     }
-    return Object.assign({
-    }, commonStyles, (_Object$assign2 = {
-    }, _Object$assign2[sideY] = hasY ? y + "px" : '', _Object$assign2[sideX] = hasX ? x + "px" : '', _Object$assign2.transform = '', _Object$assign2));
+    return Object.assign({}, commonStyles, (_Object$assign2 = {}, _Object$assign2[sideY] = hasY ? y + "px" : '', _Object$assign2[sideX] = hasX ? x + "px" : '', _Object$assign2.transform = '', _Object$assign2));
 }
 function $1546e9ddfea08d77$var$computeStyles(_ref5) {
     var state = _ref5.state, options = _ref5.options;
@@ -1406,24 +1383,19 @@ function $1546e9ddfea08d77$var$computeStyles(_ref5) {
         gpuAcceleration: gpuAcceleration,
         isFixed: state.options.strategy === 'fixed'
     };
-    if (state.modifiersData.popperOffsets != null) state.styles.popper = Object.assign({
-    }, state.styles.popper, $1546e9ddfea08d77$export$378fa78a8fea596f(Object.assign({
-    }, commonStyles, {
+    if (state.modifiersData.popperOffsets != null) state.styles.popper = Object.assign({}, state.styles.popper, $1546e9ddfea08d77$export$378fa78a8fea596f(Object.assign({}, commonStyles, {
         offsets: state.modifiersData.popperOffsets,
         position: state.options.strategy,
         adaptive: adaptive,
         roundOffsets: roundOffsets
     })));
-    if (state.modifiersData.arrow != null) state.styles.arrow = Object.assign({
-    }, state.styles.arrow, $1546e9ddfea08d77$export$378fa78a8fea596f(Object.assign({
-    }, commonStyles, {
+    if (state.modifiersData.arrow != null) state.styles.arrow = Object.assign({}, state.styles.arrow, $1546e9ddfea08d77$export$378fa78a8fea596f(Object.assign({}, commonStyles, {
         offsets: state.modifiersData.arrow,
         position: 'absolute',
         adaptive: false,
         roundOffsets: roundOffsets
     })));
-    state.attributes.popper = Object.assign({
-    }, state.attributes.popper, {
+    state.attributes.popper = Object.assign({}, state.attributes.popper, {
         'data-popper-placement': state.placement
     });
 } // eslint-disable-next-line import/no-unused-modules
@@ -1432,8 +1404,7 @@ var $1546e9ddfea08d77$export$2e2bcd8739ae039 = {
     enabled: true,
     phase: 'beforeWrite',
     fn: $1546e9ddfea08d77$var$computeStyles,
-    data: {
-    }
+    data: {}
 };
 
 });
@@ -1475,11 +1446,9 @@ var $c20574b15a9fa487$export$2e2bcd8739ae039 = {
     name: 'eventListeners',
     enabled: true,
     phase: 'write',
-    fn: function fn() {
-    },
+    fn: function fn() {},
     effect: $c20574b15a9fa487$var$effect,
-    data: {
-    }
+    data: {}
 };
 
 });
@@ -1662,8 +1631,7 @@ var $32Gl7 = parcelRequire("32Gl7");
 
 var $8uMLG = parcelRequire("8uMLG");
 function $a8eb3317be81183c$export$2e2bcd8739ae039(state, options) {
-    if (options === void 0) options = {
-    };
+    if (options === void 0) options = {};
     var _options = options, _options$placement = _options.placement, placement = _options$placement === void 0 ? state.placement : _options$placement, _options$boundary = _options.boundary, boundary = _options$boundary === void 0 ? $88cGx.clippingParents : _options$boundary, _options$rootBoundary = _options.rootBoundary, rootBoundary = _options$rootBoundary === void 0 ? $88cGx.viewport : _options$rootBoundary, _options$elementConte = _options.elementContext, elementContext = _options$elementConte === void 0 ? $88cGx.popper : _options$elementConte, _options$altBoundary = _options.altBoundary, altBoundary = _options$altBoundary === void 0 ? false : _options$altBoundary, _options$padding = _options.padding, padding = _options$padding === void 0 ? 0 : _options$padding;
     var paddingObject = $32Gl7.default(typeof padding !== 'number' ? padding : $8uMLG.default(padding, $88cGx.basePlacements));
     var altContext = elementContext === $88cGx.popper ? $88cGx.reference : $88cGx.popper;
@@ -1677,8 +1645,7 @@ function $a8eb3317be81183c$export$2e2bcd8739ae039(state, options) {
         strategy: 'absolute',
         placement: placement
     });
-    var popperClientRect = $hRx9w.default(Object.assign({
-    }, popperRect, popperOffsets));
+    var popperClientRect = $hRx9w.default(Object.assign({}, popperRect, popperOffsets));
     var elementClientRect = elementContext === $88cGx.popper ? popperClientRect : referenceClientRect; // positive = overflowing the clipping rect
     // 0 or negative = within the clipping rect
     var overflowOffsets = {
@@ -1974,8 +1941,7 @@ parcelRequire.register("hRx9w", function(module, exports) {
 
 $parcel$export(module.exports, "default", function () { return $d0111a55c8f38e2b$export$2e2bcd8739ae039; });
 function $d0111a55c8f38e2b$export$2e2bcd8739ae039(rect) {
-    return Object.assign({
-    }, rect, {
+    return Object.assign({}, rect, {
         left: rect.x,
         top: rect.y,
         right: rect.x + rect.width,
@@ -2066,8 +2032,7 @@ var $ev9kE = parcelRequire("ev9kE");
 
 var $cu2wT = parcelRequire("cu2wT");
 function $85e78187d3c18bcf$export$2e2bcd8739ae039(state, options) {
-    if (options === void 0) options = {
-    };
+    if (options === void 0) options = {};
     var _options = options, placement1 = _options.placement, boundary = _options.boundary, rootBoundary = _options.rootBoundary, padding = _options.padding, flipVariations = _options.flipVariations, _options$allowedAutoP = _options.allowedAutoPlacements, allowedAutoPlacements = _options$allowedAutoP === void 0 ? $88cGx.placements : _options$allowedAutoP;
     var variation = $8hAYq.default(placement1);
     var placements = variation ? flipVariations ? $88cGx.variationPlacements : $88cGx.variationPlacements.filter(function(placement) {
@@ -2086,8 +2051,7 @@ function $85e78187d3c18bcf$export$2e2bcd8739ae039(state, options) {
             padding: padding
         })[$cu2wT.default(placement)];
         return acc;
-    }, {
-    });
+    }, {});
     return Object.keys(overflows).sort(function(a, b) {
         return overflows[a] - overflows[b];
     });
@@ -2146,8 +2110,7 @@ function $9d00a6b25c149be3$var$hide(_ref) {
         isReferenceHidden: isReferenceHidden,
         hasPopperEscaped: hasPopperEscaped
     };
-    state.attributes.popper = Object.assign({
-    }, state.attributes.popper, {
+    state.attributes.popper = Object.assign({}, state.attributes.popper, {
         'data-popper-reference-hidden': isReferenceHidden,
         'data-popper-escaped': hasPopperEscaped
     });
@@ -2177,8 +2140,7 @@ function $9b056539298e9e2b$export$7fa02d8595b015ed(placement, rects, offset) {
         $88cGx.left,
         $88cGx.top
     ].indexOf(basePlacement) >= 0 ? -1 : 1;
-    var _ref = typeof offset === 'function' ? offset(Object.assign({
-    }, rects, {
+    var _ref = typeof offset === 'function' ? offset(Object.assign({}, rects, {
         placement: placement
     })) : offset, skidding = _ref[0], distance = _ref[1];
     skidding = skidding || 0;
@@ -2203,8 +2165,7 @@ function $9b056539298e9e2b$var$offset(_ref2) {
     var data = $88cGx.placements.reduce(function(acc, placement) {
         acc[placement] = $9b056539298e9e2b$export$7fa02d8595b015ed(placement, state.rects, offset);
         return acc;
-    }, {
-    });
+    }, {});
     var _data$state$placement = data[state.placement], x = _data$state$placement.x, y = _data$state$placement.y;
     if (state.modifiersData.popperOffsets != null) {
         state.modifiersData.popperOffsets.x += x;
@@ -2247,8 +2208,7 @@ var $f6af1d628293374a$export$2e2bcd8739ae039 = {
     enabled: true,
     phase: 'read',
     fn: $f6af1d628293374a$var$popperOffsets,
-    data: {
-    }
+    data: {}
 };
 
 });
@@ -2295,8 +2255,7 @@ function $b9f58820dffcf24e$var$preventOverflow(_ref) {
     var popperOffsets = state.modifiersData.popperOffsets;
     var referenceRect = state.rects.reference;
     var popperRect = state.rects.popper;
-    var tetherOffsetValue = typeof tetherOffset === 'function' ? tetherOffset(Object.assign({
-    }, state.rects, {
+    var tetherOffsetValue = typeof tetherOffset === 'function' ? tetherOffset(Object.assign({}, state.rects, {
         placement: state.placement
     })) : tetherOffset;
     var normalizedTetherOffsetValue = typeof tetherOffsetValue === 'number' ? {
@@ -2433,26 +2392,21 @@ function $b8b18c6dd97b637d$var$areValidElements() {
     });
 }
 function $b8b18c6dd97b637d$export$ed5e13716264f202(generatorOptions) {
-    if (generatorOptions === void 0) generatorOptions = {
-    };
+    if (generatorOptions === void 0) generatorOptions = {};
     var _generatorOptions = generatorOptions, _generatorOptions$def = _generatorOptions.defaultModifiers, defaultModifiers = _generatorOptions$def === void 0 ? [] : _generatorOptions$def, _generatorOptions$def2 = _generatorOptions.defaultOptions, defaultOptions = _generatorOptions$def2 === void 0 ? $b8b18c6dd97b637d$var$DEFAULT_OPTIONS : _generatorOptions$def2;
     return function $b8b18c6dd97b637d$export$8f7491d57c8f97a9(reference1, popper1, options1) {
         if (options1 === void 0) options1 = defaultOptions;
         var state1 = {
             placement: 'bottom',
             orderedModifiers: [],
-            options: Object.assign({
-            }, $b8b18c6dd97b637d$var$DEFAULT_OPTIONS, defaultOptions),
-            modifiersData: {
-            },
+            options: Object.assign({}, $b8b18c6dd97b637d$var$DEFAULT_OPTIONS, defaultOptions),
+            modifiersData: {},
             elements: {
                 reference: reference1,
                 popper: popper1
             },
-            attributes: {
-            },
-            styles: {
-            }
+            attributes: {},
+            styles: {}
         };
         var effectCleanupFns = [];
         var isDestroyed = false;
@@ -2461,8 +2415,7 @@ function $b8b18c6dd97b637d$export$ed5e13716264f202(generatorOptions) {
             setOptions: function setOptions(setOptionsAction) {
                 var options = typeof setOptionsAction === 'function' ? setOptionsAction(state1.options) : setOptionsAction;
                 cleanupModifierEffects();
-                state1.options = Object.assign({
-                }, defaultOptions, state1.options, options);
+                state1.options = Object.assign({}, defaultOptions, state1.options, options);
                 state1.scrollParents = {
                     reference: $euW85.isElement(reference1) ? $bEjiG.default(reference1) : reference1.contextElement ? $bEjiG.default(reference1.contextElement) : [],
                     popper: $bEjiG.default(popper1)
@@ -2501,8 +2454,7 @@ function $b8b18c6dd97b637d$export$ed5e13716264f202(generatorOptions) {
                 // it doesn't persist and is fresh on each update.
                 // To ensure persistent data, use `${name}#persistent`
                 state1.orderedModifiers.forEach(function(modifier) {
-                    return state1.modifiersData[modifier.name] = Object.assign({
-                    }, modifier.data);
+                    return state1.modifiersData[modifier.name] = Object.assign({}, modifier.data);
                 });
                 var __debug_loops__ = 0;
                 for(var index = 0; index < state1.orderedModifiers.length; index++){
@@ -2511,8 +2463,7 @@ function $b8b18c6dd97b637d$export$ed5e13716264f202(generatorOptions) {
                         index = -1;
                         continue;
                     }
-                    var _state$orderedModifie = state1.orderedModifiers[index], fn = _state$orderedModifie.fn, _state$orderedModifie2 = _state$orderedModifie.options, _options = _state$orderedModifie2 === void 0 ? {
-                    } : _state$orderedModifie2, name = _state$orderedModifie.name;
+                    var _state$orderedModifie = state1.orderedModifiers[index], fn = _state$orderedModifie.fn, _state$orderedModifie2 = _state$orderedModifie.options, _options = _state$orderedModifie2 === void 0 ? {} : _state$orderedModifie2, name = _state$orderedModifie.name;
                     if (typeof fn === 'function') state1 = fn({
                         state: state1,
                         options: _options,
@@ -2544,8 +2495,7 @@ function $b8b18c6dd97b637d$export$ed5e13716264f202(generatorOptions) {
         // one.
         function runModifierEffects() {
             state1.orderedModifiers.forEach(function(_ref3) {
-                var name = _ref3.name, _ref3$options = _ref3.options, options = _ref3$options === void 0 ? {
-                } : _ref3$options, effect = _ref3.effect;
+                var name = _ref3.name, _ref3$options = _ref3.options, options = _ref3$options === void 0 ? {} : _ref3$options, effect = _ref3.effect;
                 if (typeof effect === 'function') {
                     var cleanupFn = effect({
                         state: state1,
@@ -2553,8 +2503,7 @@ function $b8b18c6dd97b637d$export$ed5e13716264f202(generatorOptions) {
                         instance: instance,
                         options: options
                     });
-                    var noopFn = function noopFn() {
-                    };
+                    var noopFn = function noopFn() {};
                     effectCleanupFns.push(cleanupFn || noopFn);
                 }
             });
@@ -2723,16 +2672,12 @@ $parcel$export(module.exports, "default", function () { return $e039b6317025cc7d
 function $e039b6317025cc7d$export$2e2bcd8739ae039(modifiers) {
     var merged1 = modifiers.reduce(function(merged, current) {
         var existing = merged[current.name];
-        merged[current.name] = existing ? Object.assign({
-        }, existing, current, {
-            options: Object.assign({
-            }, existing.options, current.options),
-            data: Object.assign({
-            }, existing.data, current.data)
+        merged[current.name] = existing ? Object.assign({}, existing, current, {
+            options: Object.assign({}, existing.options, current.options),
+            data: Object.assign({}, existing.data, current.data)
         }) : current;
         return merged;
-    }, {
-    }); // IE11 does not support Object.values
+    }, {}); // IE11 does not support Object.values
     return Object.keys(merged1).map(function(key) {
         return merged1[key];
     });
@@ -2826,8 +2771,7 @@ function $99f71fbb6d299c4f$export$2e2bcd8739ae039(obj, key, value) {
 
 function $3e7d710376864ec3$export$2e2bcd8739ae039(target) {
     for(var i = 1; i < arguments.length; i++){
-        var source = arguments[i] != null ? arguments[i] : {
-        };
+        var source = arguments[i] != null ? arguments[i] : {};
         var ownKeys = Object.keys(source);
         if (typeof Object.getOwnPropertySymbols === 'function') ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function(sym) {
             return Object.getOwnPropertyDescriptor(source, sym).enumerable;
@@ -2850,12 +2794,7 @@ function $3e7d710376864ec3$export$2e2bcd8739ae039(target) {
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */ (function(global, factory) {
-    typeof $6a952502bd5a366b$exports === 'object' && "object" !== 'undefined' ? $6a952502bd5a366b$exports = factory((parcelRequire("hSYfs")), (parcelRequire("1j4M2")), (parcelRequire("1x0pq")), (parcelRequire("f323N"))) : typeof define === 'function' && define.amd ? define([
-        './dom/event-handler',
-        './dom/manipulator',
-        './dom/selector-engine',
-        './base-component'
-    ], factory) : (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Modal = factory(global.EventHandler, global.Manipulator, global.SelectorEngine, global.Base));
+    $6a952502bd5a366b$exports = factory((parcelRequire("hSYfs")), (parcelRequire("1j4M2")), (parcelRequire("1x0pq")), (parcelRequire("f323N")));
 })(undefined, function(EventHandler, Manipulator, SelectorEngine, BaseComponent) {
     'use strict';
     const _interopDefaultLegacy = (e)=>e && typeof e === 'object' && 'default' in e ? e : {
@@ -2875,8 +2814,7 @@ function $3e7d710376864ec3$export$2e2bcd8739ae039(target) {
     const TRANSITION_END = 'transitionend'; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
     const toType = (obj)=>{
         if (obj === null || obj === undefined) return `${obj}`;
-        return ({
-        }).toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
+        return ({}).toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
     };
     const getSelector = (element)=>{
         let selector = element.getAttribute('data-bs-target');
@@ -3134,9 +3072,7 @@ function $3e7d710376864ec3$export$2e2bcd8739ae039(target) {
             return this._element;
         }
         _getConfig(config) {
-            config = $3e7d710376864ec3$export$2e2bcd8739ae039({
-            }, Default$2, typeof config === 'object' ? config : {
-            }); // use getElement() with the default "body" to get a fresh Element on each instantiation
+            config = $3e7d710376864ec3$export$2e2bcd8739ae039({}, Default$2, typeof config === 'object' ? config : {}); // use getElement() with the default "body" to get a fresh Element on each instantiation
             config.rootElement = getElement(config.rootElement);
             typeCheckConfig(NAME$2, config, DefaultType$2);
             return config;
@@ -3217,9 +3153,7 @@ function $3e7d710376864ec3$export$2e2bcd8739ae039(target) {
             this._lastTabNavDirection = event.shiftKey ? TAB_NAV_BACKWARD : TAB_NAV_FORWARD;
         }
         _getConfig(config) {
-            config = $3e7d710376864ec3$export$2e2bcd8739ae039({
-            }, Default$1, typeof config === 'object' ? config : {
-            });
+            config = $3e7d710376864ec3$export$2e2bcd8739ae039({}, Default$1, typeof config === 'object' ? config : {});
             typeCheckConfig(NAME$1, config, DefaultType$1);
             return config;
         }
@@ -3368,9 +3302,7 @@ function $3e7d710376864ec3$export$2e2bcd8739ae039(target) {
             });
         }
         _getConfig(config) {
-            config = $3e7d710376864ec3$export$2e2bcd8739ae039({
-            }, Default, Manipulator__default.default.getDataAttributes(this._element), typeof config === 'object' ? config : {
-            });
+            config = $3e7d710376864ec3$export$2e2bcd8739ae039({}, Default, Manipulator__default.default.getDataAttributes(this._element), typeof config === 'object' ? config : {});
             typeCheckConfig(NAME, config, DefaultType);
             return config;
         }
@@ -3528,10 +3460,7 @@ var $7be44d29b417a6dc$exports = {};
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */ (function(global, factory) {
-    typeof $7be44d29b417a6dc$exports === 'object' && "object" !== 'undefined' ? $7be44d29b417a6dc$exports = factory((parcelRequire("hSYfs")), (parcelRequire("f323N"))) : typeof define === 'function' && define.amd ? define([
-        './dom/event-handler',
-        './base-component'
-    ], factory) : (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Alert = factory(global.EventHandler, global.Base));
+    $7be44d29b417a6dc$exports = factory((parcelRequire("hSYfs")), (parcelRequire("f323N")));
 })($7be44d29b417a6dc$exports, function(EventHandler, BaseComponent) {
     'use strict';
     const _interopDefaultLegacy = (e)=>e && typeof e === 'object' && 'default' in e ? e : {
@@ -3689,10 +3618,7 @@ var $10dbfefe44d02411$exports = {};
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */ (function(global, factory) {
-    typeof $10dbfefe44d02411$exports === 'object' && "object" !== 'undefined' ? $10dbfefe44d02411$exports = factory((parcelRequire("hSYfs")), (parcelRequire("f323N"))) : typeof define === 'function' && define.amd ? define([
-        './dom/event-handler',
-        './base-component'
-    ], factory) : (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Button = factory(global.EventHandler, global.Base));
+    $10dbfefe44d02411$exports = factory((parcelRequire("hSYfs")), (parcelRequire("f323N")));
 })($10dbfefe44d02411$exports, function(EventHandler, BaseComponent) {
     'use strict';
     const _interopDefaultLegacy = (e)=>e && typeof e === 'object' && 'default' in e ? e : {
@@ -3804,12 +3730,7 @@ var $271fff3f2a38a33f$exports = {};
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */ (function(global, factory) {
-    typeof $271fff3f2a38a33f$exports === 'object' && "object" !== 'undefined' ? $271fff3f2a38a33f$exports = factory((parcelRequire("hSYfs")), (parcelRequire("1j4M2")), (parcelRequire("1x0pq")), (parcelRequire("f323N"))) : typeof define === 'function' && define.amd ? define([
-        './dom/event-handler',
-        './dom/manipulator',
-        './dom/selector-engine',
-        './base-component'
-    ], factory) : (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Carousel = factory(global.EventHandler, global.Manipulator, global.SelectorEngine, global.Base));
+    $271fff3f2a38a33f$exports = factory((parcelRequire("hSYfs")), (parcelRequire("1j4M2")), (parcelRequire("1x0pq")), (parcelRequire("f323N")));
 })(undefined, function(EventHandler, Manipulator, SelectorEngine, BaseComponent) {
     'use strict';
     const _interopDefaultLegacy = (e)=>e && typeof e === 'object' && 'default' in e ? e : {
@@ -3828,8 +3749,7 @@ var $271fff3f2a38a33f$exports = {};
    */ const TRANSITION_END = 'transitionend'; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
     const toType = (obj)=>{
         if (obj === null || obj === undefined) return `${obj}`;
-        return ({
-        }).toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
+        return ({}).toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
     };
     const getSelector = (element)=>{
         let selector = element.getAttribute('data-bs-target');
@@ -4062,9 +3982,7 @@ var $271fff3f2a38a33f$exports = {};
             this._slide(order, this._items[index]);
         }
         _getConfig(config) {
-            config = $3e7d710376864ec3$export$2e2bcd8739ae039({
-            }, Default, Manipulator__default.default.getDataAttributes(this._element), typeof config === 'object' ? config : {
-            });
+            config = $3e7d710376864ec3$export$2e2bcd8739ae039({}, Default, Manipulator__default.default.getDataAttributes(this._element), typeof config === 'object' ? config : {});
             typeCheckConfig(NAME, config, DefaultType);
             return config;
         }
@@ -4255,8 +4173,7 @@ var $271fff3f2a38a33f$exports = {};
         static carouselInterface(element, config) {
             const data = Carousel.getOrCreateInstance(element, config);
             let { _config: _config  } = data;
-            if (typeof config === 'object') _config = $3e7d710376864ec3$export$2e2bcd8739ae039({
-            }, _config, config);
+            if (typeof config === 'object') _config = $3e7d710376864ec3$export$2e2bcd8739ae039({}, _config, config);
             const action = typeof config === 'string' ? config : _config.slide;
             if (typeof config === 'number') data.to(config);
             else if (typeof action === 'string') {
@@ -4275,8 +4192,7 @@ var $271fff3f2a38a33f$exports = {};
         static dataApiClickHandler(event) {
             const target = getElementFromSelector(this);
             if (!target || !target.classList.contains(CLASS_NAME_CAROUSEL)) return;
-            const config = $3e7d710376864ec3$export$2e2bcd8739ae039({
-            }, Manipulator__default.default.getDataAttributes(target), Manipulator__default.default.getDataAttributes(this));
+            const config = $3e7d710376864ec3$export$2e2bcd8739ae039({}, Manipulator__default.default.getDataAttributes(target), Manipulator__default.default.getDataAttributes(this));
             const slideIndex = this.getAttribute('data-bs-slide-to');
             if (slideIndex) config.interval = false;
             Carousel.carouselInterface(target, config);
@@ -4331,13 +4247,7 @@ var $63d6d5830121487a$exports = {};
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */ (function(global, factory) {
-    typeof $63d6d5830121487a$exports === 'object' && "object" !== 'undefined' ? $63d6d5830121487a$exports = factory((parcelRequire("jbNaB")), (parcelRequire("hSYfs")), (parcelRequire("1j4M2")), (parcelRequire("1x0pq")), (parcelRequire("f323N"))) : typeof define === 'function' && define.amd ? define([
-        '@popperjs/core',
-        './dom/event-handler',
-        './dom/manipulator',
-        './dom/selector-engine',
-        './base-component'
-    ], factory) : (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Dropdown = factory(global.Popper, global.EventHandler, global.Manipulator, global.SelectorEngine, global.Base));
+    $63d6d5830121487a$exports = factory((parcelRequire("jbNaB")), (parcelRequire("hSYfs")), (parcelRequire("1j4M2")), (parcelRequire("1x0pq")), (parcelRequire("f323N")));
 })(undefined, function(Popper, EventHandler, Manipulator, SelectorEngine, BaseComponent) {
     'use strict';
     const _interopDefaultLegacy = (e)=>e && typeof e === 'object' && 'default' in e ? e : {
@@ -4371,8 +4281,7 @@ var $63d6d5830121487a$exports = {};
    * --------------------------------------------------------------------------
    */ const toType = (obj)=>{
         if (obj === null || obj === undefined) return `${obj}`;
-        return ({
-        }).toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
+        return ({}).toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
     };
     const getSelector = (element)=>{
         let selector = element.getAttribute('data-bs-target');
@@ -4421,8 +4330,7 @@ var $63d6d5830121487a$exports = {};
         if (typeof element.disabled !== 'undefined') return element.disabled;
         return element.hasAttribute('disabled') && element.getAttribute('disabled') !== 'false';
     };
-    const noop = ()=>{
-    };
+    const noop = ()=>{};
     const getjQuery = ()=>{
         const { jQuery: jQuery  } = window;
         if (jQuery && !document.body.hasAttribute('data-bs-no-jquery')) return jQuery;
@@ -4602,8 +4510,7 @@ var $63d6d5830121487a$exports = {};
             EventHandler__default.default.trigger(this._element, EVENT_HIDDEN, relatedTarget);
         }
         _getConfig(config) {
-            config = $3e7d710376864ec3$export$2e2bcd8739ae039({
-            }, this.constructor.Default, Manipulator__default.default.getDataAttributes(this._element), config);
+            config = $3e7d710376864ec3$export$2e2bcd8739ae039({}, this.constructor.Default, Manipulator__default.default.getDataAttributes(this._element), config);
             typeCheckConfig(NAME, config, this.constructor.DefaultType);
             if (typeof config.reference === 'object' && !isElement(config.reference) && typeof config.reference.getBoundingClientRect !== 'function') // Popper virtual elements require a getBoundingClientRect method
             throw new TypeError(`${NAME.toUpperCase()}: Option "reference" provided type "object" without a required "getBoundingClientRect" method.`);
@@ -4671,8 +4578,7 @@ var $63d6d5830121487a$exports = {};
                     enabled: false
                 }
             ];
-            return $3e7d710376864ec3$export$2e2bcd8739ae039({
-            }, defaultBsPopperConfig, typeof this._config.popperConfig === 'function' ? this._config.popperConfig(defaultBsPopperConfig) : this._config.popperConfig);
+            return $3e7d710376864ec3$export$2e2bcd8739ae039({}, defaultBsPopperConfig, typeof this._config.popperConfig === 'function' ? this._config.popperConfig(defaultBsPopperConfig) : this._config.popperConfig);
         }
         _selectMenuItem({ key: key , target: target  }) {
             const items = SelectorEngine__default.default.find(SELECTOR_VISIBLE_ITEMS, this._menu).filter(isVisible);
