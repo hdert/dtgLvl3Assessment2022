@@ -61,12 +61,13 @@ if (parcelRequire == null) {
 }
 parcelRequire.register("3XF1r", function(module, exports) {
 
+var $f4mp0 = parcelRequire("f4mp0");
 /*!
   * Bootstrap event-handler.js v5.1.3 (https://getbootstrap.com/)
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */ (function(global, factory) {
-    typeof module.exports === 'object' && "object" !== 'undefined' ? module.exports = factory() : typeof define === 'function' && define.amd ? define(factory) : (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.EventHandler = factory());
+    module.exports = factory();
 })(undefined, function() {
     'use strict';
     var getUidEvent = /**
@@ -79,8 +80,7 @@ parcelRequire.register("3XF1r", function(module, exports) {
     var getEvent = function getEvent(element) {
         var uid = getUidEvent(element);
         element.uidEvent = uid;
-        eventRegistry[uid] = eventRegistry[uid] || {
-        };
+        eventRegistry[uid] = eventRegistry[uid] || {};
         return eventRegistry[uid];
     };
     var bootstrapHandler = function bootstrapHandler(element, fn) {
@@ -144,10 +144,9 @@ parcelRequire.register("3XF1r", function(module, exports) {
             if (delegationFn) delegationFn = wrapFn(delegationFn);
             else handler = wrapFn(handler);
         }
-        var ref = $af889b64f627174d$export$2e2bcd8739ae039(normalizeParams(originalTypeEvent, handler, delegationFn), 3), delegation = ref[0], originalHandler = ref[1], typeEvent = ref[2];
+        var ref = $f4mp0.default(normalizeParams(originalTypeEvent, handler, delegationFn), 3), delegation = ref[0], originalHandler = ref[1], typeEvent = ref[2];
         var events = getEvent(element);
-        var handlers = events[typeEvent] || (events[typeEvent] = {
-        });
+        var handlers = events[typeEvent] || (events[typeEvent] = {});
         var previousFn = findHandler(handlers, originalHandler, delegation ? handler : null);
         if (previousFn) {
             previousFn.oneOff = previousFn.oneOff && oneOff;
@@ -169,8 +168,7 @@ parcelRequire.register("3XF1r", function(module, exports) {
         delete events[typeEvent][fn.uidEvent];
     };
     var removeNamespacedHandlers = function removeNamespacedHandlers(element, events, typeEvent, namespace) {
-        var storeElementEvent = events[typeEvent] || {
-        };
+        var storeElementEvent = events[typeEvent] || {};
         Object.keys(storeElementEvent).forEach(function(handlerKey) {
             if (handlerKey.includes(namespace)) {
                 var event = storeElementEvent[handlerKey];
@@ -205,8 +203,7 @@ parcelRequire.register("3XF1r", function(module, exports) {
    */ var namespaceRegex = /[^.]*(?=\..*)\.|.*/;
     var stripNameRegex = /\..*/;
     var stripUidRegex = /::\d+$/;
-    var eventRegistry = {
-    }; // Events storage
+    var eventRegistry = {}; // Events storage
     var uidEvent = 1;
     var customEvents = {
         mouseenter: 'mouseover',
@@ -270,7 +267,7 @@ parcelRequire.register("3XF1r", function(module, exports) {
         },
         off: function(element, originalTypeEvent, handler, delegationFn) {
             if (typeof originalTypeEvent !== 'string' || !element) return;
-            var ref = $af889b64f627174d$export$2e2bcd8739ae039(normalizeParams(originalTypeEvent, handler, delegationFn), 3), delegation = ref[0], originalHandler = ref[1], typeEvent = ref[2];
+            var ref = $f4mp0.default(normalizeParams(originalTypeEvent, handler, delegationFn), 3), delegation = ref[0], originalHandler = ref[1], typeEvent = ref[2];
             var inNamespace = typeEvent !== originalTypeEvent;
             var events = getEvent(element);
             var isNamespace = originalTypeEvent.startsWith('.');
@@ -283,8 +280,7 @@ parcelRequire.register("3XF1r", function(module, exports) {
             if (isNamespace) Object.keys(events).forEach(function(elementEvent) {
                 removeNamespacedHandlers(element, events, elementEvent, originalTypeEvent.slice(1));
             });
-            var storeElementEvent = events[typeEvent] || {
-            };
+            var storeElementEvent = events[typeEvent] || {};
             Object.keys(storeElementEvent).forEach(function(keyHandlers) {
                 var handlerKey = keyHandlers.replace(stripUidRegex, '');
                 if (!inNamespace || originalTypeEvent.includes(handlerKey)) {
@@ -336,10 +332,18 @@ parcelRequire.register("3XF1r", function(module, exports) {
 });
 
 });
+parcelRequire.register("cffMD", function(module, exports) {
+
+$parcel$export(module.exports, "default", function () { return $8ea3210792a0fef3$export$2e2bcd8739ae039; });
 function $8ea3210792a0fef3$export$2e2bcd8739ae039(instance, Constructor) {
     if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
 }
 
+});
+
+parcelRequire.register("7FyCT", function(module, exports) {
+
+$parcel$export(module.exports, "default", function () { return $595738c9a3cc4eb7$export$2e2bcd8739ae039; });
 function $595738c9a3cc4eb7$var$_defineProperties(target, props) {
     for(var i = 0; i < props.length; i++){
         var descriptor = props[i];
@@ -355,6 +359,99 @@ function $595738c9a3cc4eb7$export$2e2bcd8739ae039(Constructor, protoProps, stati
     return Constructor;
 }
 
+});
+
+parcelRequire.register("2SV5X", function(module, exports) {
+
+$parcel$export(module.exports, "default", function () { return $219ce9ca9e38c64f$export$2e2bcd8739ae039; });
+
+var $c92yh = parcelRequire("c92yh");
+
+var $1puNK = parcelRequire("1puNK");
+
+var $kJnPF = parcelRequire("kJnPF");
+function $219ce9ca9e38c64f$export$2e2bcd8739ae039(Derived) {
+    var hasNativeReflectConstruct = $c92yh.default();
+    return function _createSuperInternal() {
+        var Super = $1puNK.default(Derived), result;
+        if (hasNativeReflectConstruct) {
+            var NewTarget = $1puNK.default(this).constructor;
+            result = Reflect.construct(Super, arguments, NewTarget);
+        } else result = Super.apply(this, arguments);
+        return $kJnPF.default(this, result);
+    };
+}
+
+});
+parcelRequire.register("c92yh", function(module, exports) {
+
+$parcel$export(module.exports, "default", function () { return $8d784e09eb81190e$export$2e2bcd8739ae039; });
+function $8d784e09eb81190e$export$2e2bcd8739ae039() {
+    if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+    if (Reflect.construct.sham) return false;
+    if (typeof Proxy === "function") return true;
+    try {
+        Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {}));
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
+});
+
+parcelRequire.register("1puNK", function(module, exports) {
+
+$parcel$export(module.exports, "default", function () { return $107004bcc4e5ec96$export$2e2bcd8739ae039; });
+function $107004bcc4e5ec96$var$getPrototypeOf(o1) {
+    $107004bcc4e5ec96$var$getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function getPrototypeOf(o) {
+        return o.__proto__ || Object.getPrototypeOf(o);
+    };
+    return $107004bcc4e5ec96$var$getPrototypeOf(o1);
+}
+function $107004bcc4e5ec96$export$2e2bcd8739ae039(o) {
+    return $107004bcc4e5ec96$var$getPrototypeOf(o);
+}
+
+});
+
+parcelRequire.register("kJnPF", function(module, exports) {
+
+$parcel$export(module.exports, "default", function () { return $f17a7f35d2606512$export$2e2bcd8739ae039; });
+
+var $lirgr = parcelRequire("lirgr");
+
+var $g6e36 = parcelRequire("g6e36");
+function $f17a7f35d2606512$export$2e2bcd8739ae039(self, call) {
+    if (call && ($g6e36.default(call) === "object" || typeof call === "function")) return call;
+    return $lirgr.default(self);
+}
+
+});
+parcelRequire.register("lirgr", function(module, exports) {
+
+$parcel$export(module.exports, "default", function () { return $f8106d8326d9f126$export$2e2bcd8739ae039; });
+function $f8106d8326d9f126$export$2e2bcd8739ae039(self) {
+    if (self === void 0) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    return self;
+}
+
+});
+
+parcelRequire.register("g6e36", function(module, exports) {
+
+$parcel$export(module.exports, "default", function () { return $bb881abaea2bde68$export$2e2bcd8739ae039; });
+function $bb881abaea2bde68$export$2e2bcd8739ae039(obj) {
+    return obj && obj.constructor === Symbol ? "symbol" : typeof obj;
+}
+
+});
+
+
+
+parcelRequire.register("jbBx3", function(module, exports) {
+
+$parcel$export(module.exports, "default", function () { return $df7c28801d77df06$export$2e2bcd8739ae039; });
 function $df7c28801d77df06$export$2e2bcd8739ae039(obj, key, value) {
     if (key in obj) Object.defineProperty(obj, key, {
         value: value,
@@ -366,30 +463,17 @@ function $df7c28801d77df06$export$2e2bcd8739ae039(obj, key, value) {
     return obj;
 }
 
-function $107004bcc4e5ec96$var$getPrototypeOf(o1) {
-    $107004bcc4e5ec96$var$getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function getPrototypeOf(o) {
-        return o.__proto__ || Object.getPrototypeOf(o);
-    };
-    return $107004bcc4e5ec96$var$getPrototypeOf(o1);
-}
-function $107004bcc4e5ec96$export$2e2bcd8739ae039(o) {
-    return $107004bcc4e5ec96$var$getPrototypeOf(o);
-}
+});
 
+parcelRequire.register("guYfu", function(module, exports) {
 
-function $78c0f8f50d8b8c11$export$2e2bcd8739ae039(object, property) {
-    while(!Object.prototype.hasOwnProperty.call(object, property)){
-        object = $107004bcc4e5ec96$export$2e2bcd8739ae039(object);
-        if (object === null) break;
-    }
-    return object;
-}
+$parcel$export(module.exports, "default", function () { return $c02e2edcb7d40940$export$2e2bcd8739ae039; });
 
-
+var $amLIu = parcelRequire("amLIu");
 function $c02e2edcb7d40940$var$get(target1, property1, receiver1) {
     if (typeof Reflect !== "undefined" && Reflect.get) $c02e2edcb7d40940$var$get = Reflect.get;
     else $c02e2edcb7d40940$var$get = function get(target, property, receiver) {
-        var base = $78c0f8f50d8b8c11$export$2e2bcd8739ae039(target, property);
+        var base = $amLIu.default(target, property);
         if (!base) return;
         var desc = Object.getOwnPropertyDescriptor(base, property);
         if (desc.get) return desc.get.call(receiver || target);
@@ -397,10 +481,48 @@ function $c02e2edcb7d40940$var$get(target1, property1, receiver1) {
     };
     return $c02e2edcb7d40940$var$get(target1, property1, receiver1);
 }
-function $c02e2edcb7d40940$export$2e2bcd8739ae039(target, property, reciever) {
-    return $c02e2edcb7d40940$var$get(target, property, reciever);
+function $c02e2edcb7d40940$export$2e2bcd8739ae039(target, property, receiver) {
+    return $c02e2edcb7d40940$var$get(target, property, receiver);
 }
 
+});
+parcelRequire.register("amLIu", function(module, exports) {
+
+$parcel$export(module.exports, "default", function () { return $78c0f8f50d8b8c11$export$2e2bcd8739ae039; });
+
+var $1puNK = parcelRequire("1puNK");
+function $78c0f8f50d8b8c11$export$2e2bcd8739ae039(object, property) {
+    while(!Object.prototype.hasOwnProperty.call(object, property)){
+        object = $1puNK.default(object);
+        if (object === null) break;
+    }
+    return object;
+}
+
+});
+
+
+parcelRequire.register("eF14S", function(module, exports) {
+
+$parcel$export(module.exports, "default", function () { return $aac5bb080a760803$export$2e2bcd8739ae039; });
+
+var $6zuBH = parcelRequire("6zuBH");
+function $aac5bb080a760803$export$2e2bcd8739ae039(subClass, superClass) {
+    if (typeof superClass !== "function" && superClass !== null) throw new TypeError("Super expression must either be null or a function");
+    subClass.prototype = Object.create(superClass && superClass.prototype, {
+        constructor: {
+            value: subClass,
+            writable: true,
+            configurable: true
+        }
+    });
+    if (superClass) $6zuBH.default(subClass, superClass);
+}
+
+});
+parcelRequire.register("6zuBH", function(module, exports) {
+
+$parcel$export(module.exports, "default", function () { return $4c8dc0e374cb855f$export$2e2bcd8739ae039; });
 function $4c8dc0e374cb855f$var$setPrototypeOf(o1, p1) {
     $4c8dc0e374cb855f$var$setPrototypeOf = Object.setPrototypeOf || function setPrototypeOf(o, p) {
         o.__proto__ = p;
@@ -412,115 +534,137 @@ function $4c8dc0e374cb855f$export$2e2bcd8739ae039(o, p) {
     return $4c8dc0e374cb855f$var$setPrototypeOf(o, p);
 }
 
-
-function $aac5bb080a760803$export$2e2bcd8739ae039(subClass, superClass) {
-    if (typeof superClass !== "function" && superClass !== null) throw new TypeError("Super expression must either be null or a function");
-    subClass.prototype = Object.create(superClass && superClass.prototype, {
-        constructor: {
-            value: subClass,
-            writable: true,
-            configurable: true
-        }
-    });
-    if (superClass) $4c8dc0e374cb855f$export$2e2bcd8739ae039(subClass, superClass);
-}
+});
 
 
+parcelRequire.register("au0A8", function(module, exports) {
+
+$parcel$export(module.exports, "default", function () { return $7a1d28477b017dc1$export$2e2bcd8739ae039; });
+
+var $jbBx3 = parcelRequire("jbBx3");
 function $7a1d28477b017dc1$export$2e2bcd8739ae039(target) {
     for(var i = 1; i < arguments.length; i++){
-        var source = arguments[i] != null ? arguments[i] : {
-        };
+        var source = arguments[i] != null ? arguments[i] : {};
         var ownKeys = Object.keys(source);
         if (typeof Object.getOwnPropertySymbols === 'function') ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function(sym) {
             return Object.getOwnPropertyDescriptor(source, sym).enumerable;
         }));
         ownKeys.forEach(function(key) {
-            $df7c28801d77df06$export$2e2bcd8739ae039(target, key, source[key]);
+            $jbBx3.default(target, key, source[key]);
         });
     }
     return target;
 }
 
+});
+
+parcelRequire.register("f4mp0", function(module, exports) {
+
+$parcel$export(module.exports, "default", function () { return $af889b64f627174d$export$2e2bcd8739ae039; });
+
+var $4FxwI = parcelRequire("4FxwI");
+
+var $hykpH = parcelRequire("hykpH");
+
+var $5CPoy = parcelRequire("5CPoy");
+
+var $3sBn8 = parcelRequire("3sBn8");
+function $af889b64f627174d$export$2e2bcd8739ae039(arr, i) {
+    return $4FxwI.default(arr) || $hykpH.default(arr, i) || $3sBn8.default(arr, i) || $5CPoy.default();
+}
+
+});
+parcelRequire.register("4FxwI", function(module, exports) {
+
+$parcel$export(module.exports, "default", function () { return $3664ff7bbb475d30$export$2e2bcd8739ae039; });
 function $3664ff7bbb475d30$export$2e2bcd8739ae039(arr) {
     if (Array.isArray(arr)) return arr;
 }
 
+});
 
+parcelRequire.register("hykpH", function(module, exports) {
+
+$parcel$export(module.exports, "default", function () { return $cc757257bf066c6d$export$2e2bcd8739ae039; });
 function $cc757257bf066c6d$export$2e2bcd8739ae039(iter) {
-    if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
+    if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
 }
 
+});
 
+parcelRequire.register("5CPoy", function(module, exports) {
+
+$parcel$export(module.exports, "default", function () { return $41885e5619cc0974$export$2e2bcd8739ae039; });
 function $41885e5619cc0974$export$2e2bcd8739ae039() {
-    throw new TypeError("Invalid attempt to destructure non-iterable instance");
+    throw new TypeError("Invalid attempt to destructure non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
+});
 
-function $af889b64f627174d$export$2e2bcd8739ae039(arr, i) {
-    return $3664ff7bbb475d30$export$2e2bcd8739ae039(arr) || $cc757257bf066c6d$export$2e2bcd8739ae039(arr, i) || $41885e5619cc0974$export$2e2bcd8739ae039();
+parcelRequire.register("3sBn8", function(module, exports) {
+
+$parcel$export(module.exports, "default", function () { return $2850f9f15f66a70c$export$2e2bcd8739ae039; });
+
+var $251pz = parcelRequire("251pz");
+function $2850f9f15f66a70c$export$2e2bcd8739ae039(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return $251pz.default(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(n);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return $251pz.default(o, minLen);
 }
 
-function $552c9c083e7d7855$export$2e2bcd8739ae039(arr) {
-    if (Array.isArray(arr)) {
-        for(var i = 0, arr2 = new Array(arr.length); i < arr.length; i++)arr2[i] = arr[i];
-        return arr2;
-    }
+});
+parcelRequire.register("251pz", function(module, exports) {
+
+$parcel$export(module.exports, "default", function () { return $183d24af4fca68b4$export$2e2bcd8739ae039; });
+function $183d24af4fca68b4$export$2e2bcd8739ae039(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
+    for(var i = 0, arr2 = new Array(len); i < len; i++)arr2[i] = arr[i];
+    return arr2;
 }
 
+});
 
 
-function $c42a6295a0d8303e$export$2e2bcd8739ae039() {
-    throw new TypeError("Invalid attempt to spread non-iterable instance");
-}
 
+parcelRequire.register("ZWIU7", function(module, exports) {
 
+$parcel$export(module.exports, "default", function () { return $0ba33fd5f36a2a7b$export$2e2bcd8739ae039; });
+
+var $7jnAT = parcelRequire("7jnAT");
+
+var $hykpH = parcelRequire("hykpH");
+
+var $gQbs1 = parcelRequire("gQbs1");
+
+var $3sBn8 = parcelRequire("3sBn8");
 function $0ba33fd5f36a2a7b$export$2e2bcd8739ae039(arr) {
-    return $552c9c083e7d7855$export$2e2bcd8739ae039(arr) || $cc757257bf066c6d$export$2e2bcd8739ae039(arr) || $c42a6295a0d8303e$export$2e2bcd8739ae039();
+    return $7jnAT.default(arr) || $hykpH.default(arr) || $3sBn8.default(arr) || $gQbs1.default();
 }
 
-function $8d784e09eb81190e$export$2e2bcd8739ae039() {
-    if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-    if (Reflect.construct.sham) return false;
-    if (typeof Proxy === "function") return true;
-    try {
-        Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {
-        }));
-        return true;
-    } catch (e) {
-        return false;
-    }
+});
+parcelRequire.register("7jnAT", function(module, exports) {
+
+$parcel$export(module.exports, "default", function () { return $552c9c083e7d7855$export$2e2bcd8739ae039; });
+
+var $251pz = parcelRequire("251pz");
+function $552c9c083e7d7855$export$2e2bcd8739ae039(arr) {
+    if (Array.isArray(arr)) return $251pz.default(arr);
 }
 
+});
 
+parcelRequire.register("gQbs1", function(module, exports) {
 
-function $f8106d8326d9f126$export$2e2bcd8739ae039(self) {
-    if (self === void 0) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-    return self;
+$parcel$export(module.exports, "default", function () { return $c42a6295a0d8303e$export$2e2bcd8739ae039; });
+function $c42a6295a0d8303e$export$2e2bcd8739ae039() {
+    throw new TypeError("Invalid attempt to spread non-iterable instance.\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
+});
 
-function $bb881abaea2bde68$export$2e2bcd8739ae039(obj) {
-    return obj && obj.constructor === Symbol ? "symbol" : typeof obj;
-}
-
-
-function $f17a7f35d2606512$export$2e2bcd8739ae039(self, call) {
-    if (call && ($bb881abaea2bde68$export$2e2bcd8739ae039(call) === "object" || typeof call === "function")) return call;
-    return $f8106d8326d9f126$export$2e2bcd8739ae039(self);
-}
-
-
-function $219ce9ca9e38c64f$export$2e2bcd8739ae039(Derived) {
-    var hasNativeReflectConstruct = $8d784e09eb81190e$export$2e2bcd8739ae039();
-    return function _createSuperInternal() {
-        var Super = $107004bcc4e5ec96$export$2e2bcd8739ae039(Derived), result;
-        if (hasNativeReflectConstruct) {
-            var NewTarget = $107004bcc4e5ec96$export$2e2bcd8739ae039(this).constructor;
-            result = Reflect.construct(Super, arguments, NewTarget);
-        } else result = Super.apply(this, arguments);
-        return $f17a7f35d2606512$export$2e2bcd8739ae039(this, result);
-    };
-}
 
 
 
@@ -530,7 +674,7 @@ parcelRequire.register("hWETy", function(module, exports) {
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */ (function(global, factory) {
-    typeof module.exports === 'object' && "object" !== 'undefined' ? module.exports = factory() : typeof define === 'function' && define.amd ? define(factory) : (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Manipulator = factory());
+    module.exports = factory();
 })(module.exports, function() {
     'use strict';
     var normalizeData = /**
@@ -558,10 +702,8 @@ parcelRequire.register("hWETy", function(module, exports) {
             element.removeAttribute("data-bs-".concat(normalizeDataKey(key)));
         },
         getDataAttributes: function(element) {
-            if (!element) return {
-            };
-            var attributes = {
-            };
+            if (!element) return {};
+            var attributes = {};
             Object.keys(element.dataset).filter(function(key) {
                 return key.startsWith('bs');
             }).forEach(function(key) {
@@ -595,12 +737,13 @@ parcelRequire.register("hWETy", function(module, exports) {
 
 parcelRequire.register("3GZw3", function(module, exports) {
 
+var $ZWIU7 = parcelRequire("ZWIU7");
 /*!
   * Bootstrap selector-engine.js v5.1.3 (https://getbootstrap.com/)
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */ (function(global, factory) {
-    typeof module.exports === 'object' && "object" !== 'undefined' ? module.exports = factory() : typeof define === 'function' && define.amd ? define(factory) : (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.SelectorEngine = factory());
+    module.exports = factory();
 })(undefined, function() {
     'use strict';
     /**
@@ -633,7 +776,7 @@ parcelRequire.register("3GZw3", function(module, exports) {
         find: function(selector) {
             var element = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : document.documentElement;
             var _instance;
-            return (_instance = []).concat.apply(_instance, $0ba33fd5f36a2a7b$export$2e2bcd8739ae039(Element.prototype.querySelectorAll.call(element, selector)));
+            return (_instance = []).concat.apply(_instance, $ZWIU7.default(Element.prototype.querySelectorAll.call(element, selector)));
         },
         findOne: function(selector) {
             var element = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : document.documentElement;
@@ -641,7 +784,7 @@ parcelRequire.register("3GZw3", function(module, exports) {
         },
         children: function(element, selector) {
             var _instance;
-            return (_instance = []).concat.apply(_instance, $0ba33fd5f36a2a7b$export$2e2bcd8739ae039(element.children)).filter(function(child) {
+            return (_instance = []).concat.apply(_instance, $ZWIU7.default(element.children)).filter(function(child) {
                 return child.matches(selector);
             });
         },
@@ -685,7 +828,7 @@ parcelRequire.register("3GZw3", function(module, exports) {
                 '[tabindex]',
                 '[contenteditable="true"]'
             ].map(function(selector) {
-                return "".concat(selector, ":not([tabindex^=\"-\"])");
+                return "".concat(selector, ':not([tabindex^="-"])');
             }).join(', ');
             return this.find(focusables, element).filter(function(el) {
                 return !isDisabled(el) && isVisible(el);
@@ -699,6 +842,8 @@ parcelRequire.register("3GZw3", function(module, exports) {
 
 parcelRequire.register("dzxhs", function(module, exports) {
 
+var $cffMD = parcelRequire("cffMD");
+var $7FyCT = parcelRequire("7FyCT");
 
 
 /*!
@@ -706,10 +851,7 @@ parcelRequire.register("dzxhs", function(module, exports) {
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */ (function(global, factory) {
-    typeof module.exports === 'object' && "object" !== 'undefined' ? module.exports = factory((parcelRequire("jLh5r")), (parcelRequire("3XF1r"))) : typeof define === 'function' && define.amd ? define([
-        './dom/data',
-        './dom/event-handler'
-    ], factory) : (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Base = factory(global.Data, global.EventHandler));
+    module.exports = factory((parcelRequire("jLh5r")), (parcelRequire("3XF1r")));
 })(undefined, function(Data, EventHandler) {
     'use strict';
     var _interopDefaultLegacy = function(e) {
@@ -788,13 +930,13 @@ parcelRequire.register("dzxhs", function(module, exports) {
    */ var VERSION = '5.1.3';
     var BaseComponent = /*#__PURE__*/ function() {
         function BaseComponent(element) {
-            $8ea3210792a0fef3$export$2e2bcd8739ae039(this, BaseComponent);
+            $cffMD.default(this, BaseComponent);
             element = getElement(element);
             if (!element) return;
             this._element = element;
             Data__default.default.set(this._element, this.constructor.DATA_KEY, this);
         }
-        $595738c9a3cc4eb7$export$2e2bcd8739ae039(BaseComponent, [
+        $7FyCT.default(BaseComponent, [
             {
                 key: "dispose",
                 value: function dispose() {
@@ -823,8 +965,7 @@ parcelRequire.register("dzxhs", function(module, exports) {
             {
                 key: "getOrCreateInstance",
                 value: function getOrCreateInstance(element) {
-                    var config = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
-                    };
+                    var config = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
                     return this.getInstance(element) || new this(element, typeof config === 'object' ? config : null);
                 }
             },
@@ -865,7 +1006,7 @@ parcelRequire.register("jLh5r", function(module, exports) {
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */ (function(global, factory) {
-    typeof module.exports === 'object' && "object" !== 'undefined' ? module.exports = factory() : typeof define === 'function' && define.amd ? define(factory) : (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Data = factory());
+    module.exports = factory();
 })(module.exports, function() {
     'use strict';
     /**
@@ -1052,10 +1193,8 @@ var $aB4tv = parcelRequire("aB4tv");
 function $54801dabe10fa82e$var$applyStyles(_ref) {
     var state = _ref.state;
     Object.keys(state.elements).forEach(function(name1) {
-        var style = state.styles[name1] || {
-        };
-        var attributes = state.attributes[name1] || {
-        };
+        var style = state.styles[name1] || {};
+        var attributes = state.attributes[name1] || {};
         var element = state.elements[name1]; // arrow is optional + virtual elements
         if (!$aB4tv.isHTMLElement(element) || !$9IMx6.default(element)) return;
          // Flow doesn't support to extend this property, but it's the most
@@ -1081,8 +1220,7 @@ function $54801dabe10fa82e$var$effect(_ref2) {
         arrow: {
             position: 'absolute'
         },
-        reference: {
-        }
+        reference: {}
     };
     Object.assign(state.elements.popper.style, initialStyles.popper);
     state.styles = initialStyles;
@@ -1090,14 +1228,12 @@ function $54801dabe10fa82e$var$effect(_ref2) {
     return function() {
         Object.keys(state.elements).forEach(function(name) {
             var element = state.elements[name];
-            var attributes = state.attributes[name] || {
-            };
+            var attributes = state.attributes[name] || {};
             var styleProperties = Object.keys(state.styles.hasOwnProperty(name) ? state.styles[name] : initialStyles[name]); // Set all values to an empty string to unset them
             var style1 = styleProperties.reduce(function(style, property) {
                 style[property] = '';
                 return style;
-            }, {
-            }); // arrow is optional + virtual elements
+            }, {}); // arrow is optional + virtual elements
             if (!$aB4tv.isHTMLElement(element) || !$9IMx6.default(element)) return;
             Object.assign(element.style, style1);
             Object.keys(attributes).forEach(function(attribute) {
@@ -1189,8 +1325,7 @@ var $dEVGK = parcelRequire("dEVGK");
 var $hlKTk = parcelRequire("hlKTk");
 
 var $d80e1924a6f695de$var$toPaddingObject = function toPaddingObject(padding, state) {
-    padding = typeof padding === 'function' ? padding(Object.assign({
-    }, state.rects, {
+    padding = typeof padding === 'function' ? padding(Object.assign({}, state.rects, {
         placement: state.placement
     })) : padding;
     return $lCptX.default(typeof padding !== 'number' ? padding : $dEVGK.default(padding, $hlKTk.basePlacements));
@@ -1223,8 +1358,7 @@ function $d80e1924a6f695de$var$arrow(_ref) {
     var center = clientSize / 2 - arrowRect[len] / 2 + centerToReference;
     var offset = $jWRUi.within(min, center, max); // Prevents breaking syntax highlighting...
     var axisProp = axis;
-    state.modifiersData[name] = (_state$modifiersData$ = {
-    }, _state$modifiersData$[axisProp] = offset, _state$modifiersData$.centerOffset = offset - center, _state$modifiersData$);
+    state.modifiersData[name] = (_state$modifiersData$ = {}, _state$modifiersData$[axisProp] = offset, _state$modifiersData$.centerOffset = offset - center, _state$modifiersData$);
 }
 function $d80e1924a6f695de$var$effect(_ref2) {
     var state = _ref2.state, options = _ref2.options;
@@ -1379,6 +1513,7 @@ function $cc0863fb7d7aad7f$var$getContainingBlock(element) {
         if (elementCss.position === 'fixed') return null;
     }
     var currentNode = $biDJq.default(element);
+    if ($aB4tv.isShadowRoot(currentNode)) currentNode = currentNode.host;
     while($aB4tv.isHTMLElement(currentNode) && [
         'html',
         'body'
@@ -1496,8 +1631,7 @@ $parcel$export(module.exports, "default", function () { return $fbd0e9cef71f697e
 
 var $e3264 = parcelRequire("e3264");
 function $fbd0e9cef71f697e$export$2e2bcd8739ae039(paddingObject) {
-    return Object.assign({
-    }, $e3264.default(), paddingObject);
+    return Object.assign({}, $e3264.default(), paddingObject);
 }
 
 });
@@ -1523,8 +1657,7 @@ function $9f1bc2845ac647b7$export$2e2bcd8739ae039(value, keys) {
     return keys.reduce(function(hashMap, key) {
         hashMap[key] = value;
         return hashMap;
-    }, {
-    });
+    }, {});
 }
 
 });
@@ -1597,13 +1730,13 @@ function $71dff3dcf94a55fa$export$378fa78a8fea596f(_ref2) {
         } // $FlowFixMe[incompatible-cast]: force type refinement, we compare offsetParent with window above, but Flow doesn't detect it
         if (placement === $hlKTk.top || (placement === $hlKTk.left || placement === $hlKTk.right) && variation === $hlKTk.end) {
             sideY = $hlKTk.bottom;
-            var offsetY = isFixed && win.visualViewport ? win.visualViewport.height : offsetParent[heightProp];
+            var offsetY = isFixed && offsetParent === win && win.visualViewport ? win.visualViewport.height : offsetParent[heightProp];
             y -= offsetY - popperRect.height;
             y *= gpuAcceleration ? 1 : -1;
         }
         if (placement === $hlKTk.left || (placement === $hlKTk.top || placement === $hlKTk.bottom) && variation === $hlKTk.end) {
             sideX = $hlKTk.right;
-            var offsetX = isFixed && win.visualViewport ? win.visualViewport.width : offsetParent[widthProp];
+            var offsetX = isFixed && offsetParent === win && win.visualViewport ? win.visualViewport.width : offsetParent[widthProp];
             x -= offsetX - popperRect.width;
             x *= gpuAcceleration ? 1 : -1;
         }
@@ -1622,13 +1755,9 @@ function $71dff3dcf94a55fa$export$378fa78a8fea596f(_ref2) {
     y = _ref4.y;
     if (gpuAcceleration) {
         var _Object$assign;
-        return Object.assign({
-        }, commonStyles, (_Object$assign = {
-        }, _Object$assign[sideY] = hasY ? '0' : '', _Object$assign[sideX] = hasX ? '0' : '', _Object$assign.transform = (win.devicePixelRatio || 1) <= 1 ? "translate(" + x + "px, " + y + "px)" : "translate3d(" + x + "px, " + y + "px, 0)", _Object$assign));
+        return Object.assign({}, commonStyles, (_Object$assign = {}, _Object$assign[sideY] = hasY ? '0' : '', _Object$assign[sideX] = hasX ? '0' : '', _Object$assign.transform = (win.devicePixelRatio || 1) <= 1 ? "translate(" + x + "px, " + y + "px)" : "translate3d(" + x + "px, " + y + "px, 0)", _Object$assign));
     }
-    return Object.assign({
-    }, commonStyles, (_Object$assign2 = {
-    }, _Object$assign2[sideY] = hasY ? y + "px" : '', _Object$assign2[sideX] = hasX ? x + "px" : '', _Object$assign2.transform = '', _Object$assign2));
+    return Object.assign({}, commonStyles, (_Object$assign2 = {}, _Object$assign2[sideY] = hasY ? y + "px" : '', _Object$assign2[sideX] = hasX ? x + "px" : '', _Object$assign2.transform = '', _Object$assign2));
 }
 function $71dff3dcf94a55fa$var$computeStyles(_ref5) {
     var state = _ref5.state, options = _ref5.options;
@@ -1642,24 +1771,19 @@ function $71dff3dcf94a55fa$var$computeStyles(_ref5) {
         gpuAcceleration: gpuAcceleration,
         isFixed: state.options.strategy === 'fixed'
     };
-    if (state.modifiersData.popperOffsets != null) state.styles.popper = Object.assign({
-    }, state.styles.popper, $71dff3dcf94a55fa$export$378fa78a8fea596f(Object.assign({
-    }, commonStyles, {
+    if (state.modifiersData.popperOffsets != null) state.styles.popper = Object.assign({}, state.styles.popper, $71dff3dcf94a55fa$export$378fa78a8fea596f(Object.assign({}, commonStyles, {
         offsets: state.modifiersData.popperOffsets,
         position: state.options.strategy,
         adaptive: adaptive,
         roundOffsets: roundOffsets
     })));
-    if (state.modifiersData.arrow != null) state.styles.arrow = Object.assign({
-    }, state.styles.arrow, $71dff3dcf94a55fa$export$378fa78a8fea596f(Object.assign({
-    }, commonStyles, {
+    if (state.modifiersData.arrow != null) state.styles.arrow = Object.assign({}, state.styles.arrow, $71dff3dcf94a55fa$export$378fa78a8fea596f(Object.assign({}, commonStyles, {
         offsets: state.modifiersData.arrow,
         position: 'absolute',
         adaptive: false,
         roundOffsets: roundOffsets
     })));
-    state.attributes.popper = Object.assign({
-    }, state.attributes.popper, {
+    state.attributes.popper = Object.assign({}, state.attributes.popper, {
         'data-popper-placement': state.placement
     });
 } // eslint-disable-next-line import/no-unused-modules
@@ -1668,8 +1792,7 @@ var $71dff3dcf94a55fa$export$2e2bcd8739ae039 = {
     enabled: true,
     phase: 'beforeWrite',
     fn: $71dff3dcf94a55fa$var$computeStyles,
-    data: {
-    }
+    data: {}
 };
 
 });
@@ -1711,11 +1834,9 @@ var $938e12a98a83fae3$export$2e2bcd8739ae039 = {
     name: 'eventListeners',
     enabled: true,
     phase: 'write',
-    fn: function fn() {
-    },
+    fn: function fn() {},
     effect: $938e12a98a83fae3$var$effect,
-    data: {
-    }
+    data: {}
 };
 
 });
@@ -1898,8 +2019,7 @@ var $lCptX = parcelRequire("lCptX");
 
 var $dEVGK = parcelRequire("dEVGK");
 function $df20f94dad9a1172$export$2e2bcd8739ae039(state, options) {
-    if (options === void 0) options = {
-    };
+    if (options === void 0) options = {};
     var _options = options, _options$placement = _options.placement, placement = _options$placement === void 0 ? state.placement : _options$placement, _options$boundary = _options.boundary, boundary = _options$boundary === void 0 ? $hlKTk.clippingParents : _options$boundary, _options$rootBoundary = _options.rootBoundary, rootBoundary = _options$rootBoundary === void 0 ? $hlKTk.viewport : _options$rootBoundary, _options$elementConte = _options.elementContext, elementContext = _options$elementConte === void 0 ? $hlKTk.popper : _options$elementConte, _options$altBoundary = _options.altBoundary, altBoundary = _options$altBoundary === void 0 ? false : _options$altBoundary, _options$padding = _options.padding, padding = _options$padding === void 0 ? 0 : _options$padding;
     var paddingObject = $lCptX.default(typeof padding !== 'number' ? padding : $dEVGK.default(padding, $hlKTk.basePlacements));
     var altContext = elementContext === $hlKTk.popper ? $hlKTk.reference : $hlKTk.popper;
@@ -1913,8 +2033,7 @@ function $df20f94dad9a1172$export$2e2bcd8739ae039(state, options) {
         strategy: 'absolute',
         placement: placement
     });
-    var popperClientRect = $goTFA.default(Object.assign({
-    }, popperRect, popperOffsets));
+    var popperClientRect = $goTFA.default(Object.assign({}, popperRect, popperOffsets));
     var elementClientRect = elementContext === $hlKTk.popper ? popperClientRect : referenceClientRect; // positive = overflowing the clipping rect
     // 0 or negative = within the clipping rect
     var overflowOffsets = {
@@ -2210,8 +2329,7 @@ parcelRequire.register("goTFA", function(module, exports) {
 
 $parcel$export(module.exports, "default", function () { return $bf0a1218d6533ea7$export$2e2bcd8739ae039; });
 function $bf0a1218d6533ea7$export$2e2bcd8739ae039(rect) {
-    return Object.assign({
-    }, rect, {
+    return Object.assign({}, rect, {
         left: rect.x,
         top: rect.y,
         right: rect.x + rect.width,
@@ -2302,8 +2420,7 @@ var $j9HYT = parcelRequire("j9HYT");
 
 var $dlRDv = parcelRequire("dlRDv");
 function $1c685c89f003e8c1$export$2e2bcd8739ae039(state, options) {
-    if (options === void 0) options = {
-    };
+    if (options === void 0) options = {};
     var _options = options, placement1 = _options.placement, boundary = _options.boundary, rootBoundary = _options.rootBoundary, padding = _options.padding, flipVariations = _options.flipVariations, _options$allowedAutoP = _options.allowedAutoPlacements, allowedAutoPlacements = _options$allowedAutoP === void 0 ? $hlKTk.placements : _options$allowedAutoP;
     var variation = $4xoSJ.default(placement1);
     var placements = variation ? flipVariations ? $hlKTk.variationPlacements : $hlKTk.variationPlacements.filter(function(placement) {
@@ -2322,8 +2439,7 @@ function $1c685c89f003e8c1$export$2e2bcd8739ae039(state, options) {
             padding: padding
         })[$dlRDv.default(placement)];
         return acc;
-    }, {
-    });
+    }, {});
     return Object.keys(overflows).sort(function(a, b) {
         return overflows[a] - overflows[b];
     });
@@ -2382,8 +2498,7 @@ function $4f5618a626dd1b8b$var$hide(_ref) {
         isReferenceHidden: isReferenceHidden,
         hasPopperEscaped: hasPopperEscaped
     };
-    state.attributes.popper = Object.assign({
-    }, state.attributes.popper, {
+    state.attributes.popper = Object.assign({}, state.attributes.popper, {
         'data-popper-reference-hidden': isReferenceHidden,
         'data-popper-escaped': hasPopperEscaped
     });
@@ -2413,8 +2528,7 @@ function $bfb581e8a6bcd981$export$7fa02d8595b015ed(placement, rects, offset) {
         $hlKTk.left,
         $hlKTk.top
     ].indexOf(basePlacement) >= 0 ? -1 : 1;
-    var _ref = typeof offset === 'function' ? offset(Object.assign({
-    }, rects, {
+    var _ref = typeof offset === 'function' ? offset(Object.assign({}, rects, {
         placement: placement
     })) : offset, skidding = _ref[0], distance = _ref[1];
     skidding = skidding || 0;
@@ -2432,15 +2546,14 @@ function $bfb581e8a6bcd981$export$7fa02d8595b015ed(placement, rects, offset) {
 }
 function $bfb581e8a6bcd981$var$offset(_ref2) {
     var state = _ref2.state, options = _ref2.options, name = _ref2.name;
-    var _options$offset = options.offset, offset = _options$offset === void 0 ? [
+    var _options$offset = options.offset, _$offset = _options$offset === void 0 ? [
         0,
         0
     ] : _options$offset;
     var data = $hlKTk.placements.reduce(function(acc, placement) {
-        acc[placement] = $bfb581e8a6bcd981$export$7fa02d8595b015ed(placement, state.rects, offset);
+        acc[placement] = $bfb581e8a6bcd981$export$7fa02d8595b015ed(placement, state.rects, _$offset);
         return acc;
-    }, {
-    });
+    }, {});
     var _data$state$placement = data[state.placement], x = _data$state$placement.x, y = _data$state$placement.y;
     if (state.modifiersData.popperOffsets != null) {
         state.modifiersData.popperOffsets.x += x;
@@ -2483,8 +2596,7 @@ var $196e2343f5a57b11$export$2e2bcd8739ae039 = {
     enabled: true,
     phase: 'read',
     fn: $196e2343f5a57b11$var$popperOffsets,
-    data: {
-    }
+    data: {}
 };
 
 });
@@ -2531,8 +2643,7 @@ function $dbdacb6486679d71$var$preventOverflow(_ref) {
     var popperOffsets = state.modifiersData.popperOffsets;
     var referenceRect = state.rects.reference;
     var popperRect = state.rects.popper;
-    var tetherOffsetValue = typeof tetherOffset === 'function' ? tetherOffset(Object.assign({
-    }, state.rects, {
+    var tetherOffsetValue = typeof tetherOffset === 'function' ? tetherOffset(Object.assign({}, state.rects, {
         placement: state.placement
     })) : tetherOffset;
     var normalizedTetherOffsetValue = typeof tetherOffsetValue === 'number' ? {
@@ -2669,27 +2780,24 @@ function $2652d7742f261362$var$areValidElements() {
     });
 }
 function $2652d7742f261362$export$ed5e13716264f202(generatorOptions) {
-    if (generatorOptions === void 0) generatorOptions = {
-    };
+    if (generatorOptions === void 0) generatorOptions = {};
     var _generatorOptions = generatorOptions, _generatorOptions$def = _generatorOptions.defaultModifiers, defaultModifiers = _generatorOptions$def === void 0 ? [] : _generatorOptions$def, _generatorOptions$def2 = _generatorOptions.defaultOptions, defaultOptions = _generatorOptions$def2 === void 0 ? $2652d7742f261362$var$DEFAULT_OPTIONS : _generatorOptions$def2;
-    return function $2652d7742f261362$export$8f7491d57c8f97a9(reference1, popper1, options1) {
+    return function $2652d7742f261362$export$8f7491d57c8f97a9(reference, popper, options) {
         var runModifierEffects = // update cycle runs. They will be executed in the same order as the update
         // cycle. This is useful when a modifier adds some persistent data that
         // other modifiers need to use, but the modifier is run after the dependent
         // one.
         function runModifierEffects() {
             state1.orderedModifiers.forEach(function(_ref3) {
-                var name = _ref3.name, _ref3$options = _ref3.options, options = _ref3$options === void 0 ? {
-                } : _ref3$options, effect = _ref3.effect;
+                var name = _ref3.name, _ref3$options = _ref3.options, _$options = _ref3$options === void 0 ? {} : _ref3$options, effect = _ref3.effect;
                 if (typeof effect === 'function') {
                     var cleanupFn = effect({
                         state: state1,
                         name: name,
                         instance: instance,
-                        options: options
+                        options: _$options
                     });
-                    var noopFn = function noopFn() {
-                    };
+                    var noopFn = function noopFn() {};
                     effectCleanupFns.push(cleanupFn || noopFn);
                 }
             });
@@ -2700,35 +2808,30 @@ function $2652d7742f261362$export$ed5e13716264f202(generatorOptions) {
             });
             effectCleanupFns = [];
         };
-        if (options1 === void 0) options1 = defaultOptions;
+        if (options === void 0) options = defaultOptions;
         var state1 = {
             placement: 'bottom',
             orderedModifiers: [],
-            options: Object.assign({
-            }, $2652d7742f261362$var$DEFAULT_OPTIONS, defaultOptions),
-            modifiersData: {
-            },
+            options: Object.assign({}, $2652d7742f261362$var$DEFAULT_OPTIONS, defaultOptions),
+            modifiersData: {},
             elements: {
-                reference: reference1,
-                popper: popper1
+                reference: reference,
+                popper: popper
             },
-            attributes: {
-            },
-            styles: {
-            }
+            attributes: {},
+            styles: {}
         };
         var effectCleanupFns = [];
         var isDestroyed = false;
         var instance = {
             state: state1,
             setOptions: function setOptions(setOptionsAction) {
-                var options = typeof setOptionsAction === 'function' ? setOptionsAction(state1.options) : setOptionsAction;
+                var _$options = typeof setOptionsAction === 'function' ? setOptionsAction(state1.options) : setOptionsAction;
                 cleanupModifierEffects();
-                state1.options = Object.assign({
-                }, defaultOptions, state1.options, options);
+                state1.options = Object.assign({}, defaultOptions, state1.options, _$options);
                 state1.scrollParents = {
-                    reference: $aB4tv.isElement(reference1) ? $6IPyF.default(reference1) : reference1.contextElement ? $6IPyF.default(reference1.contextElement) : [],
-                    popper: $6IPyF.default(popper1)
+                    reference: $aB4tv.isElement(reference) ? $6IPyF.default(reference) : reference.contextElement ? $6IPyF.default(reference.contextElement) : [],
+                    popper: $6IPyF.default(popper)
                 }; // Orders the modifiers based on their dependencies and `phase`
                 // properties
                 var orderedModifiers = $eumnl.default($hoRse.default([].concat(defaultModifiers, state1.options.modifiers))); // Strip out disabled modifiers
@@ -2746,13 +2849,13 @@ function $2652d7742f261362$export$ed5e13716264f202(generatorOptions) {
             // prefer the async Popper#update method
             forceUpdate: function forceUpdate() {
                 if (isDestroyed) return;
-                var _state$elements = state1.elements, reference = _state$elements.reference, popper = _state$elements.popper; // Don't proceed if `reference` or `popper` are not valid elements
+                var _state$elements = state1.elements, _$reference = _state$elements.reference, _$popper = _state$elements.popper; // Don't proceed if `reference` or `popper` are not valid elements
                 // anymore
-                if (!$2652d7742f261362$var$areValidElements(reference, popper)) return;
+                if (!$2652d7742f261362$var$areValidElements(_$reference, _$popper)) return;
                  // Store the reference and popper rects to be read by modifiers
                 state1.rects = {
-                    reference: $asCQA.default(reference, $hw3P5.default(popper), state1.options.strategy === 'fixed'),
-                    popper: $eD6F9.default(popper)
+                    reference: $asCQA.default(_$reference, $hw3P5.default(_$popper), state1.options.strategy === 'fixed'),
+                    popper: $eD6F9.default(_$popper)
                 }; // Modifiers have the ability to reset the current update cycle. The
                 // most common use case for this is the `flip` modifier changing the
                 // placement, which then needs to re-run all the modifiers, because the
@@ -2764,8 +2867,7 @@ function $2652d7742f261362$export$ed5e13716264f202(generatorOptions) {
                 // it doesn't persist and is fresh on each update.
                 // To ensure persistent data, use `${name}#persistent`
                 state1.orderedModifiers.forEach(function(modifier) {
-                    return state1.modifiersData[modifier.name] = Object.assign({
-                    }, modifier.data);
+                    return state1.modifiersData[modifier.name] = Object.assign({}, modifier.data);
                 });
                 var __debug_loops__ = 0;
                 for(var index = 0; index < state1.orderedModifiers.length; index++){
@@ -2774,8 +2876,7 @@ function $2652d7742f261362$export$ed5e13716264f202(generatorOptions) {
                         index = -1;
                         continue;
                     }
-                    var _state$orderedModifie = state1.orderedModifiers[index], fn = _state$orderedModifie.fn, _state$orderedModifie2 = _state$orderedModifie.options, _options = _state$orderedModifie2 === void 0 ? {
-                    } : _state$orderedModifie2, name = _state$orderedModifie.name;
+                    var _state$orderedModifie = state1.orderedModifiers[index], fn = _state$orderedModifie.fn, _state$orderedModifie2 = _state$orderedModifie.options, _options = _state$orderedModifie2 === void 0 ? {} : _state$orderedModifie2, name = _state$orderedModifie.name;
                     if (typeof fn === 'function') state1 = fn({
                         state: state1,
                         options: _options,
@@ -2797,9 +2898,9 @@ function $2652d7742f261362$export$ed5e13716264f202(generatorOptions) {
                 isDestroyed = true;
             }
         };
-        if (!$2652d7742f261362$var$areValidElements(reference1, popper1)) return instance;
-        instance.setOptions(options1).then(function(state) {
-            if (!isDestroyed && options1.onFirstUpdate) options1.onFirstUpdate(state);
+        if (!$2652d7742f261362$var$areValidElements(reference, popper)) return instance;
+        instance.setOptions(options).then(function(state) {
+            if (!isDestroyed && options.onFirstUpdate) options.onFirstUpdate(state);
         }); // Modifiers have the ability to execute arbitrary code before the first
         return instance;
     };
@@ -2959,16 +3060,12 @@ $parcel$export(module.exports, "default", function () { return $caae24791d4da27f
 function $caae24791d4da27f$export$2e2bcd8739ae039(modifiers) {
     var merged1 = modifiers.reduce(function(merged, current) {
         var existing = merged[current.name];
-        merged[current.name] = existing ? Object.assign({
-        }, existing, current, {
-            options: Object.assign({
-            }, existing.options, current.options),
-            data: Object.assign({
-            }, existing.data, current.data)
+        merged[current.name] = existing ? Object.assign({}, existing, current, {
+            options: Object.assign({}, existing.options, current.options),
+            data: Object.assign({}, existing.data, current.data)
         }) : current;
         return merged;
-    }, {
-    }); // IE11 does not support Object.values
+    }, {}); // IE11 does not support Object.values
     return Object.keys(merged1).map(function(key) {
         return merged1[key];
     });
@@ -3049,6 +3146,13 @@ var $7c5d9ae49a215c36$export$8f7491d57c8f97a9 = /*#__PURE__*/ $3hZJb.popperGener
 
 var $735a6a9231c43831$exports = {};
 
+var $cffMD = parcelRequire("cffMD");
+var $7FyCT = parcelRequire("7FyCT");
+var $au0A8 = parcelRequire("au0A8");
+var $eF14S = parcelRequire("eF14S");
+var $2SV5X = parcelRequire("2SV5X");
+var $guYfu = parcelRequire("guYfu");
+var $1puNK = parcelRequire("1puNK");
 
 
 
@@ -3058,12 +3162,7 @@ var $735a6a9231c43831$exports = {};
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */ (function(global, factory) {
-    typeof $735a6a9231c43831$exports === 'object' && "object" !== 'undefined' ? $735a6a9231c43831$exports = factory((parcelRequire("3XF1r")), (parcelRequire("hWETy")), (parcelRequire("3GZw3")), (parcelRequire("dzxhs"))) : typeof define === 'function' && define.amd ? define([
-        './dom/event-handler',
-        './dom/manipulator',
-        './dom/selector-engine',
-        './base-component'
-    ], factory) : (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Modal = factory(global.EventHandler, global.Manipulator, global.SelectorEngine, global.Base));
+    $735a6a9231c43831$exports = factory((parcelRequire("3XF1r")), (parcelRequire("hWETy")), (parcelRequire("3GZw3")), (parcelRequire("dzxhs")));
 })(undefined, function(EventHandler, Manipulator, SelectorEngine, BaseComponent) {
     'use strict';
     var _interopDefaultLegacy = function(e) {
@@ -3084,8 +3183,7 @@ var $735a6a9231c43831$exports = {};
     var TRANSITION_END = 'transitionend'; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
     var toType = function(obj) {
         if (obj === null || obj === undefined) return "".concat(obj);
-        return ({
-        }).toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
+        return ({}).toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
     };
     var getSelector = function(element) {
         var selector = element.getAttribute('data-bs-target');
@@ -3136,7 +3234,7 @@ var $735a6a9231c43831$exports = {};
             var expectedTypes = configTypes[property];
             var value = config[property];
             var valueType = value && isElement(value) ? 'element' : toType(value);
-            if (!new RegExp(expectedTypes).test(valueType)) throw new TypeError("".concat(componentName.toUpperCase(), ": Option \"").concat(property, "\" provided type \"").concat(valueType, "\" but expected type \"").concat(expectedTypes, "\"."));
+            if (!new RegExp(expectedTypes).test(valueType)) throw new TypeError("".concat(componentName.toUpperCase(), ': Option "').concat(property, '" provided type "').concat(valueType, '" but expected type "').concat(expectedTypes, '".'));
         });
     };
     var isVisible = function(element) {
@@ -3228,10 +3326,10 @@ var $735a6a9231c43831$exports = {};
     var SELECTOR_STICKY_CONTENT = '.sticky-top';
     var ScrollBarHelper = /*#__PURE__*/ function() {
         function ScrollBarHelper() {
-            $8ea3210792a0fef3$export$2e2bcd8739ae039(this, ScrollBarHelper);
+            $cffMD.default(this, ScrollBarHelper);
             this._element = document.body;
         }
-        $595738c9a3cc4eb7$export$2e2bcd8739ae039(ScrollBarHelper, [
+        $7FyCT.default(ScrollBarHelper, [
             {
                 key: "getWidth",
                 value: function getWidth() {
@@ -3350,12 +3448,12 @@ var $735a6a9231c43831$exports = {};
     var EVENT_MOUSEDOWN = "mousedown.bs.".concat(NAME$2);
     var Backdrop = /*#__PURE__*/ function() {
         function Backdrop(config) {
-            $8ea3210792a0fef3$export$2e2bcd8739ae039(this, Backdrop);
+            $cffMD.default(this, Backdrop);
             this._config = this._getConfig(config);
             this._isAppended = false;
             this._element = null;
         }
-        $595738c9a3cc4eb7$export$2e2bcd8739ae039(Backdrop, [
+        $7FyCT.default(Backdrop, [
             {
                 key: "show",
                 value: function show(callback) {
@@ -3401,9 +3499,7 @@ var $735a6a9231c43831$exports = {};
             {
                 key: "_getConfig",
                 value: function _getConfig(config) {
-                    config = $7a1d28477b017dc1$export$2e2bcd8739ae039({
-                    }, Default$2, typeof config === 'object' ? config : {
-                    }); // use getElement() with the default "body" to get a fresh Element on each instantiation
+                    config = $au0A8.default({}, Default$2, typeof config === 'object' ? config : {}); // use getElement() with the default "body" to get a fresh Element on each instantiation
                     config.rootElement = getElement(config.rootElement);
                     typeCheckConfig(NAME$2, config, DefaultType$2);
                     return config;
@@ -3463,12 +3559,12 @@ var $735a6a9231c43831$exports = {};
     var TAB_NAV_BACKWARD = 'backward';
     var FocusTrap = /*#__PURE__*/ function() {
         function FocusTrap(config) {
-            $8ea3210792a0fef3$export$2e2bcd8739ae039(this, FocusTrap);
+            $cffMD.default(this, FocusTrap);
             this._config = this._getConfig(config);
             this._isActive = false;
             this._lastTabNavDirection = null;
         }
-        $595738c9a3cc4eb7$export$2e2bcd8739ae039(FocusTrap, [
+        $7FyCT.default(FocusTrap, [
             {
                 key: "activate",
                 value: function activate() {
@@ -3516,9 +3612,7 @@ var $735a6a9231c43831$exports = {};
             {
                 key: "_getConfig",
                 value: function _getConfig(config) {
-                    config = $7a1d28477b017dc1$export$2e2bcd8739ae039({
-                    }, Default$1, typeof config === 'object' ? config : {
-                    });
+                    config = $au0A8.default({}, Default$1, typeof config === 'object' ? config : {});
                     typeCheckConfig(NAME$1, config, DefaultType$1);
                     return config;
                 }
@@ -3535,7 +3629,7 @@ var $735a6a9231c43831$exports = {};
         var method = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 'hide';
         var clickEvent = "click.dismiss".concat(component.EVENT_KEY);
         var name = component.NAME;
-        EventHandler__default.default.on(document, clickEvent, "[data-bs-dismiss=\"".concat(name, "\"]"), function(event) {
+        EventHandler__default.default.on(document, clickEvent, '[data-bs-dismiss="'.concat(name, '"]'), function(event) {
             if ([
                 'A',
                 'AREA'
@@ -3589,15 +3683,15 @@ var $735a6a9231c43831$exports = {};
     var SELECTOR_DIALOG = '.modal-dialog';
     var SELECTOR_MODAL_BODY = '.modal-body';
     var SELECTOR_DATA_TOGGLE = '[data-bs-toggle="modal"]';
-    var Modal = /**
+    /**
    * ------------------------------------------------------------------------
    * Class Definition
    * ------------------------------------------------------------------------
-   */ /*#__PURE__*/ function(_default) {
-        $aac5bb080a760803$export$2e2bcd8739ae039(Modal, _default);
-        var _super = $219ce9ca9e38c64f$export$2e2bcd8739ae039(Modal);
+   */ var Modal = /*#__PURE__*/ function(_default) {
+        $eF14S.default(Modal, _default);
+        var _super = $2SV5X.default(Modal);
         function Modal(element, config) {
-            $8ea3210792a0fef3$export$2e2bcd8739ae039(this, Modal);
+            $cffMD.default(this, Modal);
             var _this;
             _this = _super.call(this, element);
             _this._config = _this._getConfig(config);
@@ -3610,7 +3704,7 @@ var $735a6a9231c43831$exports = {};
             _this._scrollBar = new ScrollBarHelper();
             return _this;
         }
-        $595738c9a3cc4eb7$export$2e2bcd8739ae039(Modal, [
+        $7FyCT.default(Modal, [
             {
                 key: "toggle",
                 value: function toggle(relatedTarget) {
@@ -3676,7 +3770,7 @@ var $735a6a9231c43831$exports = {};
                     });
                     this._backdrop.dispose();
                     this._focustrap.deactivate();
-                    $c02e2edcb7d40940$export$2e2bcd8739ae039($107004bcc4e5ec96$export$2e2bcd8739ae039(Modal.prototype), "dispose", this).call(this);
+                    $guYfu.default($1puNK.default(Modal.prototype), "dispose", this).call(this);
                 }
             },
             {
@@ -3706,9 +3800,7 @@ var $735a6a9231c43831$exports = {};
             {
                 key: "_getConfig",
                 value: function _getConfig(config) {
-                    config = $7a1d28477b017dc1$export$2e2bcd8739ae039({
-                    }, Default, Manipulator__default.default.getDataAttributes(this._element), typeof config === 'object' ? config : {
-                    });
+                    config = $au0A8.default({}, Default, Manipulator__default.default.getDataAttributes(this._element), typeof config === 'object' ? config : {});
                     typeCheckConfig(NAME, config, DefaultType);
                     return config;
                 }
@@ -3859,7 +3951,7 @@ var $735a6a9231c43831$exports = {};
                     return this.each(function() {
                         var data = Modal.getOrCreateInstance(this, config);
                         if (typeof config !== 'string') return;
-                        if (typeof data[config] === 'undefined') throw new TypeError("No method named \"".concat(config, "\""));
+                        if (typeof data[config] === 'undefined') throw new TypeError('No method named "'.concat(config, '"'));
                         data[config](relatedTarget);
                     });
                 }
@@ -3904,6 +3996,10 @@ var $735a6a9231c43831$exports = {};
 
 var $02e983120d202b8d$exports = {};
 
+var $eF14S = parcelRequire("eF14S");
+var $2SV5X = parcelRequire("2SV5X");
+var $cffMD = parcelRequire("cffMD");
+var $7FyCT = parcelRequire("7FyCT");
 
 
 /*!
@@ -3911,10 +4007,7 @@ var $02e983120d202b8d$exports = {};
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */ (function(global, factory) {
-    typeof $02e983120d202b8d$exports === 'object' && "object" !== 'undefined' ? $02e983120d202b8d$exports = factory((parcelRequire("3XF1r")), (parcelRequire("dzxhs"))) : typeof define === 'function' && define.amd ? define([
-        './dom/event-handler',
-        './base-component'
-    ], factory) : (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Alert = factory(global.EventHandler, global.Base));
+    $02e983120d202b8d$exports = factory((parcelRequire("3XF1r")), (parcelRequire("dzxhs")));
 })(undefined, function(EventHandler, BaseComponent) {
     'use strict';
     var _interopDefaultLegacy = function(e) {
@@ -3994,7 +4087,7 @@ var $02e983120d202b8d$exports = {};
         var method = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 'hide';
         var clickEvent = "click.dismiss".concat(component.EVENT_KEY);
         var name = component.NAME;
-        EventHandler__default.default.on(document, clickEvent, "[data-bs-dismiss=\"".concat(name, "\"]"), function(event) {
+        EventHandler__default.default.on(document, clickEvent, '[data-bs-dismiss="'.concat(name, '"]'), function(event) {
             if ([
                 'A',
                 'AREA'
@@ -4021,18 +4114,18 @@ var $02e983120d202b8d$exports = {};
     var EVENT_CLOSED = "closed".concat(EVENT_KEY);
     var CLASS_NAME_FADE = 'fade';
     var CLASS_NAME_SHOW = 'show';
-    var Alert = /**
+    /**
    * ------------------------------------------------------------------------
    * Class Definition
    * ------------------------------------------------------------------------
-   */ /*#__PURE__*/ function(_default) {
-        $aac5bb080a760803$export$2e2bcd8739ae039(Alert, _default);
-        var _super = $219ce9ca9e38c64f$export$2e2bcd8739ae039(Alert);
+   */ var Alert = /*#__PURE__*/ function(_default) {
+        $eF14S.default(Alert, _default);
+        var _super = $2SV5X.default(Alert);
         function Alert() {
-            $8ea3210792a0fef3$export$2e2bcd8739ae039(this, Alert);
+            $cffMD.default(this, Alert);
             return _super.apply(this, arguments);
         }
-        $595738c9a3cc4eb7$export$2e2bcd8739ae039(Alert, [
+        $7FyCT.default(Alert, [
             {
                 key: "close",
                 value: function close() {
@@ -4068,7 +4161,7 @@ var $02e983120d202b8d$exports = {};
                     return this.each(function() {
                         var data = Alert.getOrCreateInstance(this);
                         if (typeof config !== 'string') return;
-                        if (data[config] === undefined || config.startsWith('_') || config === 'constructor') throw new TypeError("No method named \"".concat(config, "\""));
+                        if (data[config] === undefined || config.startsWith('_') || config === 'constructor') throw new TypeError('No method named "'.concat(config, '"'));
                         data[config](this);
                     });
                 }
@@ -4093,6 +4186,10 @@ var $02e983120d202b8d$exports = {};
 
 var $1711d9a42f0c130b$exports = {};
 
+var $eF14S = parcelRequire("eF14S");
+var $2SV5X = parcelRequire("2SV5X");
+var $cffMD = parcelRequire("cffMD");
+var $7FyCT = parcelRequire("7FyCT");
 
 
 /*!
@@ -4100,10 +4197,7 @@ var $1711d9a42f0c130b$exports = {};
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */ (function(global, factory) {
-    typeof $1711d9a42f0c130b$exports === 'object' && "object" !== 'undefined' ? $1711d9a42f0c130b$exports = factory((parcelRequire("3XF1r")), (parcelRequire("dzxhs"))) : typeof define === 'function' && define.amd ? define([
-        './dom/event-handler',
-        './base-component'
-    ], factory) : (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Button = factory(global.EventHandler, global.Base));
+    $1711d9a42f0c130b$exports = factory((parcelRequire("3XF1r")), (parcelRequire("dzxhs")));
 })(undefined, function(EventHandler, BaseComponent) {
     'use strict';
     var _interopDefaultLegacy = function(e) {
@@ -4166,18 +4260,18 @@ var $1711d9a42f0c130b$exports = {};
     var CLASS_NAME_ACTIVE = 'active';
     var SELECTOR_DATA_TOGGLE = '[data-bs-toggle="button"]';
     var EVENT_CLICK_DATA_API = "click".concat(EVENT_KEY).concat(DATA_API_KEY);
-    var Button = /**
+    /**
    * ------------------------------------------------------------------------
    * Class Definition
    * ------------------------------------------------------------------------
-   */ /*#__PURE__*/ function(_default) {
-        $aac5bb080a760803$export$2e2bcd8739ae039(Button, _default);
-        var _super = $219ce9ca9e38c64f$export$2e2bcd8739ae039(Button);
+   */ var Button = /*#__PURE__*/ function(_default) {
+        $eF14S.default(Button, _default);
+        var _super = $2SV5X.default(Button);
         function Button() {
-            $8ea3210792a0fef3$export$2e2bcd8739ae039(this, Button);
+            $cffMD.default(this, Button);
             return _super.apply(this, arguments);
         }
-        $595738c9a3cc4eb7$export$2e2bcd8739ae039(Button, [
+        $7FyCT.default(Button, [
             {
                 key: "toggle",
                 value: function toggle() {
@@ -4227,6 +4321,12 @@ var $1711d9a42f0c130b$exports = {};
 
 var $e82a939cca0ab78a$exports = {};
 
+var $jbBx3 = parcelRequire("jbBx3");
+var $eF14S = parcelRequire("eF14S");
+var $2SV5X = parcelRequire("2SV5X");
+var $cffMD = parcelRequire("cffMD");
+var $7FyCT = parcelRequire("7FyCT");
+var $au0A8 = parcelRequire("au0A8");
 
 
 
@@ -4236,12 +4336,7 @@ var $e82a939cca0ab78a$exports = {};
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */ (function(global, factory) {
-    typeof $e82a939cca0ab78a$exports === 'object' && "object" !== 'undefined' ? $e82a939cca0ab78a$exports = factory((parcelRequire("3XF1r")), (parcelRequire("hWETy")), (parcelRequire("3GZw3")), (parcelRequire("dzxhs"))) : typeof define === 'function' && define.amd ? define([
-        './dom/event-handler',
-        './dom/manipulator',
-        './dom/selector-engine',
-        './base-component'
-    ], factory) : (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Carousel = factory(global.EventHandler, global.Manipulator, global.SelectorEngine, global.Base));
+    $e82a939cca0ab78a$exports = factory((parcelRequire("3XF1r")), (parcelRequire("hWETy")), (parcelRequire("3GZw3")), (parcelRequire("dzxhs")));
 })(undefined, function(EventHandler, Manipulator, SelectorEngine, BaseComponent) {
     'use strict';
     var _interopDefaultLegacy = function(e) {
@@ -4261,8 +4356,7 @@ var $e82a939cca0ab78a$exports = {};
    */ var TRANSITION_END = 'transitionend'; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
     var toType = function(obj) {
         if (obj === null || obj === undefined) return "".concat(obj);
-        return ({
-        }).toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
+        return ({}).toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
     };
     var getSelector = function(element) {
         var selector = element.getAttribute('data-bs-target');
@@ -4295,7 +4389,7 @@ var $e82a939cca0ab78a$exports = {};
             var expectedTypes = configTypes[property];
             var value = config[property];
             var valueType = value && isElement(value) ? 'element' : toType(value);
-            if (!new RegExp(expectedTypes).test(valueType)) throw new TypeError("".concat(componentName.toUpperCase(), ": Option \"").concat(property, "\" provided type \"").concat(valueType, "\" but expected type \"").concat(expectedTypes, "\"."));
+            if (!new RegExp(expectedTypes).test(valueType)) throw new TypeError("".concat(componentName.toUpperCase(), ': Option "').concat(property, '" provided type "').concat(valueType, '" but expected type "').concat(expectedTypes, '".'));
         });
     };
     var isVisible = function(element) {
@@ -4402,8 +4496,7 @@ var $e82a939cca0ab78a$exports = {};
     var DIRECTION_LEFT = 'left';
     var DIRECTION_RIGHT = 'right';
     var _obj;
-    var KEY_TO_DIRECTION = (_obj = {
-    }, $df7c28801d77df06$export$2e2bcd8739ae039(_obj, ARROW_LEFT_KEY, DIRECTION_RIGHT), $df7c28801d77df06$export$2e2bcd8739ae039(_obj, ARROW_RIGHT_KEY, DIRECTION_LEFT), _obj);
+    var KEY_TO_DIRECTION = (_obj = {}, $jbBx3.default(_obj, ARROW_LEFT_KEY, DIRECTION_RIGHT), $jbBx3.default(_obj, ARROW_RIGHT_KEY, DIRECTION_LEFT), _obj);
     var EVENT_SLIDE = "slide".concat(EVENT_KEY);
     var EVENT_SLID = "slid".concat(EVENT_KEY);
     var EVENT_KEYDOWN = "keydown".concat(EVENT_KEY);
@@ -4436,15 +4529,15 @@ var $e82a939cca0ab78a$exports = {};
     var SELECTOR_DATA_RIDE = '[data-bs-ride="carousel"]';
     var POINTER_TYPE_TOUCH = 'touch';
     var POINTER_TYPE_PEN = 'pen';
-    var Carousel = /**
+    /**
    * ------------------------------------------------------------------------
    * Class Definition
    * ------------------------------------------------------------------------
-   */ /*#__PURE__*/ function(_default) {
-        $aac5bb080a760803$export$2e2bcd8739ae039(Carousel, _default);
-        var _super = $219ce9ca9e38c64f$export$2e2bcd8739ae039(Carousel);
+   */ var Carousel = /*#__PURE__*/ function(_default) {
+        $eF14S.default(Carousel, _default);
+        var _super = $2SV5X.default(Carousel);
         function Carousel(element, config) {
-            $8ea3210792a0fef3$export$2e2bcd8739ae039(this, Carousel);
+            $cffMD.default(this, Carousel);
             var _this;
             _this = _super.call(this, element);
             _this._items = null;
@@ -4462,7 +4555,7 @@ var $e82a939cca0ab78a$exports = {};
             _this._addEventListeners();
             return _this;
         }
-        $595738c9a3cc4eb7$export$2e2bcd8739ae039(Carousel, [
+        $7FyCT.default(Carousel, [
             {
                 key: "next",
                 value: function next() {
@@ -4534,9 +4627,7 @@ var $e82a939cca0ab78a$exports = {};
             {
                 key: "_getConfig",
                 value: function _getConfig(config) {
-                    config = $7a1d28477b017dc1$export$2e2bcd8739ae039({
-                    }, Default, Manipulator__default.default.getDataAttributes(this._element), typeof config === 'object' ? config : {
-                    });
+                    config = $au0A8.default({}, Default, Manipulator__default.default.getDataAttributes(this._element), typeof config === 'object' ? config : {});
                     typeCheckConfig(NAME, config, DefaultType);
                     return config;
                 }
@@ -4795,12 +4886,11 @@ var $e82a939cca0ab78a$exports = {};
                 value: function carouselInterface(element, config) {
                     var data = Carousel.getOrCreateInstance(element, config);
                     var _config = data._config;
-                    if (typeof config === 'object') _config = $7a1d28477b017dc1$export$2e2bcd8739ae039({
-                    }, _config, config);
+                    if (typeof config === 'object') _config = $au0A8.default({}, _config, config);
                     var action = typeof config === 'string' ? config : _config.slide;
                     if (typeof config === 'number') data.to(config);
                     else if (typeof action === 'string') {
-                        if (typeof data[action] === 'undefined') throw new TypeError("No method named \"".concat(action, "\""));
+                        if (typeof data[action] === 'undefined') throw new TypeError('No method named "'.concat(action, '"'));
                         data[action]();
                     } else if (_config.interval && _config.ride) {
                         data.pause();
@@ -4821,8 +4911,7 @@ var $e82a939cca0ab78a$exports = {};
                 value: function dataApiClickHandler(event) {
                     var target = getElementFromSelector(this);
                     if (!target || !target.classList.contains(CLASS_NAME_CAROUSEL)) return;
-                    var config = $7a1d28477b017dc1$export$2e2bcd8739ae039({
-                    }, Manipulator__default.default.getDataAttributes(target), Manipulator__default.default.getDataAttributes(this));
+                    var config = $au0A8.default({}, Manipulator__default.default.getDataAttributes(target), Manipulator__default.default.getDataAttributes(this));
                     var slideIndex = this.getAttribute('data-bs-slide-to');
                     if (slideIndex) config.interval = false;
                     Carousel.carouselInterface(target, config);
@@ -4854,6 +4943,14 @@ var $e82a939cca0ab78a$exports = {};
 
 var $1780368ce749b970$exports = {};
 
+var $eF14S = parcelRequire("eF14S");
+var $2SV5X = parcelRequire("2SV5X");
+var $cffMD = parcelRequire("cffMD");
+var $7FyCT = parcelRequire("7FyCT");
+var $ZWIU7 = parcelRequire("ZWIU7");
+var $guYfu = parcelRequire("guYfu");
+var $1puNK = parcelRequire("1puNK");
+var $au0A8 = parcelRequire("au0A8");
 
 
 
@@ -4864,13 +4961,7 @@ var $1780368ce749b970$exports = {};
   * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */ (function(global, factory) {
-    typeof $1780368ce749b970$exports === 'object' && "object" !== 'undefined' ? $1780368ce749b970$exports = factory((parcelRequire("8G4c8")), (parcelRequire("3XF1r")), (parcelRequire("hWETy")), (parcelRequire("3GZw3")), (parcelRequire("dzxhs"))) : typeof define === 'function' && define.amd ? define([
-        '@popperjs/core',
-        './dom/event-handler',
-        './dom/manipulator',
-        './dom/selector-engine',
-        './base-component'
-    ], factory) : (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Dropdown = factory(global.Popper, global.EventHandler, global.Manipulator, global.SelectorEngine, global.Base));
+    $1780368ce749b970$exports = factory((parcelRequire("8G4c8")), (parcelRequire("3XF1r")), (parcelRequire("hWETy")), (parcelRequire("3GZw3")), (parcelRequire("dzxhs")));
 })(undefined, function(Popper, EventHandler, Manipulator, SelectorEngine, BaseComponent) {
     'use strict';
     var _interopNamespace = function _interopNamespace(e) {
@@ -4910,8 +5001,7 @@ var $1780368ce749b970$exports = {};
    * --------------------------------------------------------------------------
    */ var toType = function(obj) {
         if (obj === null || obj === undefined) return "".concat(obj);
-        return ({
-        }).toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
+        return ({}).toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
     };
     var getSelector = function(element) {
         var selector = element.getAttribute('data-bs-target');
@@ -4947,7 +5037,7 @@ var $1780368ce749b970$exports = {};
             var expectedTypes = configTypes[property];
             var value = config[property];
             var valueType = value && isElement(value) ? 'element' : toType(value);
-            if (!new RegExp(expectedTypes).test(valueType)) throw new TypeError("".concat(componentName.toUpperCase(), ": Option \"").concat(property, "\" provided type \"").concat(valueType, "\" but expected type \"").concat(expectedTypes, "\"."));
+            if (!new RegExp(expectedTypes).test(valueType)) throw new TypeError("".concat(componentName.toUpperCase(), ': Option "').concat(property, '" provided type "').concat(valueType, '" but expected type "').concat(expectedTypes, '".'));
         });
     };
     var isVisible = function(element) {
@@ -4960,8 +5050,7 @@ var $1780368ce749b970$exports = {};
         if (typeof element.disabled !== 'undefined') return element.disabled;
         return element.hasAttribute('disabled') && element.getAttribute('disabled') !== 'false';
     };
-    var noop = function() {
-    };
+    var noop = function() {};
     var getjQuery = function() {
         var jQuery = window.jQuery;
         if (jQuery && !document.body.hasAttribute('data-bs-no-jquery')) return jQuery;
@@ -5074,15 +5163,15 @@ var $1780368ce749b970$exports = {};
         popperConfig: '(null|object|function)',
         autoClose: '(boolean|string)'
     };
-    var Dropdown = /**
+    /**
    * ------------------------------------------------------------------------
    * Class Definition
    * ------------------------------------------------------------------------
-   */ /*#__PURE__*/ function(_default) {
-        $aac5bb080a760803$export$2e2bcd8739ae039(Dropdown, _default);
-        var _super = $219ce9ca9e38c64f$export$2e2bcd8739ae039(Dropdown);
+   */ var Dropdown = /*#__PURE__*/ function(_default) {
+        $eF14S.default(Dropdown, _default);
+        var _super = $2SV5X.default(Dropdown);
         function Dropdown(element, config) {
-            $8ea3210792a0fef3$export$2e2bcd8739ae039(this, Dropdown);
+            $cffMD.default(this, Dropdown);
             var _this;
             _this = _super.call(this, element);
             _this._popper = null;
@@ -5091,7 +5180,7 @@ var $1780368ce749b970$exports = {};
             _this._inNavbar = _this._detectNavbar();
             return _this;
         }
-        $595738c9a3cc4eb7$export$2e2bcd8739ae039(Dropdown, [
+        $7FyCT.default(Dropdown, [
             {
                 key: "toggle",
                 value: function toggle() {
@@ -5115,7 +5204,7 @@ var $1780368ce749b970$exports = {};
                     // empty mouseover listeners to the body's immediate children;
                     // only needed because of broken event delegation on iOS
                     // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
-                    if ('ontouchstart' in document.documentElement && !parent.closest(SELECTOR_NAVBAR_NAV)) (_instance = []).concat.apply(_instance, $0ba33fd5f36a2a7b$export$2e2bcd8739ae039(document.body.children)).forEach(function(elem) {
+                    if ('ontouchstart' in document.documentElement && !parent.closest(SELECTOR_NAVBAR_NAV)) (_instance = []).concat.apply(_instance, $ZWIU7.default(document.body.children)).forEach(function(elem) {
                         return EventHandler__default.default.on(elem, 'mouseover', noop);
                     });
                     this._element.focus();
@@ -5139,7 +5228,7 @@ var $1780368ce749b970$exports = {};
                 key: "dispose",
                 value: function dispose() {
                     if (this._popper) this._popper.destroy();
-                    $c02e2edcb7d40940$export$2e2bcd8739ae039($107004bcc4e5ec96$export$2e2bcd8739ae039(Dropdown.prototype), "dispose", this).call(this);
+                    $guYfu.default($1puNK.default(Dropdown.prototype), "dispose", this).call(this);
                 }
             },
             {
@@ -5157,7 +5246,7 @@ var $1780368ce749b970$exports = {};
                     if (hideEvent.defaultPrevented) return;
                      // If this is a touch-enabled device we remove the extra
                     // empty mouseover listeners we added for iOS support
-                    if ('ontouchstart' in document.documentElement) (_instance = []).concat.apply(_instance, $0ba33fd5f36a2a7b$export$2e2bcd8739ae039(document.body.children)).forEach(function(elem) {
+                    if ('ontouchstart' in document.documentElement) (_instance = []).concat.apply(_instance, $ZWIU7.default(document.body.children)).forEach(function(elem) {
                         return EventHandler__default.default.off(elem, 'mouseover', noop);
                     });
                     if (this._popper) this._popper.destroy();
@@ -5171,11 +5260,10 @@ var $1780368ce749b970$exports = {};
             {
                 key: "_getConfig",
                 value: function _getConfig(config) {
-                    config = $7a1d28477b017dc1$export$2e2bcd8739ae039({
-                    }, this.constructor.Default, Manipulator__default.default.getDataAttributes(this._element), config);
+                    config = $au0A8.default({}, this.constructor.Default, Manipulator__default.default.getDataAttributes(this._element), config);
                     typeCheckConfig(NAME, config, this.constructor.DefaultType);
                     if (typeof config.reference === 'object' && !isElement(config.reference) && typeof config.reference.getBoundingClientRect !== 'function') // Popper virtual elements require a getBoundingClientRect method
-                    throw new TypeError("".concat(NAME.toUpperCase(), ": Option \"reference\" provided type \"object\" without a required \"getBoundingClientRect\" method."));
+                    throw new TypeError("".concat(NAME.toUpperCase(), ': Option "reference" provided type "object" without a required "getBoundingClientRect" method.'));
                     return config;
                 }
             },
@@ -5266,8 +5354,7 @@ var $1780368ce749b970$exports = {};
                             enabled: false
                         }
                     ];
-                    return $7a1d28477b017dc1$export$2e2bcd8739ae039({
-                    }, defaultBsPopperConfig, typeof this._config.popperConfig === 'function' ? this._config.popperConfig(defaultBsPopperConfig) : this._config.popperConfig);
+                    return $au0A8.default({}, defaultBsPopperConfig, typeof this._config.popperConfig === 'function' ? this._config.popperConfig(defaultBsPopperConfig) : this._config.popperConfig);
                 }
             },
             {
@@ -5306,7 +5393,7 @@ var $1780368ce749b970$exports = {};
                     return this.each(function() {
                         var data = Dropdown.getOrCreateInstance(this, config);
                         if (typeof config !== 'string') return;
-                        if (typeof data[config] === 'undefined') throw new TypeError("No method named \"".concat(config, "\""));
+                        if (typeof data[config] === 'undefined') throw new TypeError('No method named "'.concat(config, '"'));
                         data[config]();
                     });
                 }
