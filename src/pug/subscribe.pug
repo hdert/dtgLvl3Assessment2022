@@ -1,14 +1,16 @@
 mixin formInput(codeName, FrontEndName, placeholder, type, required)
   if required == true
     .mb-3.form-floating
-      input.form-control(
+      input.form-control.border-danger(
         id=codeName,
         name=codeName,
         type=type,
+        aria-describedby=codeName + "RequiredMessage",
         placeholder=placeholder,
         required
       )
       label.form-label(for=codeName)= FrontEndName
+      .form-text.text-danger(id=codeName + "RequiredMessage") This field is required
   else
     .mb-3.form-floating
       input.form-control(
