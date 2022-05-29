@@ -10,11 +10,15 @@ html(lang="en")
       p An exhibition of photographic composite works that challenge the perceptions of reality.
       p As a travelling exhibition, 'What Lies Beneath' is an inspirational showcase of altered reality coming to a town near you. Find a location close to you from the list below, and mark the date and place in your diary. You won't be disappointed when you immerse yourself in the fantastical, creative works of the exhibiting artists: Jack Pott, Kay Oss, Barry D. Hatchett and Anita Room.
       .d-flex.flex-wrap
+        // The following classes make the sponsorship information go from being two-columned on desktop
+        // to inline above the table on mobile. This ensure the sponsorship information is still displayed
+        // prominently on mobile, being above the table rather than below.
         .justify-content-center.d-flex.flex-wrap.col-12.col-sm-6.order-2.order-sm-1.pe-0.pe-sm-3
           h2.text-center Exhibition Information
           table.table
             tbody
               tr 
+                // The class .pe-3 adds padding after each table data in the first column for aesthetics and spacing (C.R.A.P.).
                 td.pe-3
                   h5 Paihia
                   p.mb-1 Visions and Variety
@@ -53,6 +57,7 @@ html(lang="en")
                   p.mb-1 365 Rewa Drive
                   p.mb-1 Temuka
                   p Tuesday 8 June - Thursday 1 July
+        // Sponsor information is displayed prominently by using a two column design and reordering using css-flex features.
         .d-flex.col-12.col-sm-6.order-1.order-sm-2
           p 'What Lies Beneath' is proudly sponsored by Quicksticks Sporting Goods, Umpteen Treasures and Spinfluence.
   include ../includes/footer.pug

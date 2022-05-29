@@ -2,6 +2,7 @@ mixin head(title, description, image, large, page, imageAlt)
   head
     title= title
     meta(name="description", content=description)
+    // Keep webpages with possibly copyrighted assets off of search engines
     meta(name="robots", content="noindex, nofollow")
     meta(name="charset", content="UTF-8")
     // Social media meta tags
