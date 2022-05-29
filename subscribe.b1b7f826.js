@@ -3434,6 +3434,29 @@ var $6113053a03963448$exports = {};
 });
 
 
+// Thanks to:
+// http://fightingforalostcause.net/misc/2006/compare-email-regex.php
+// http://thedailywtf.com/Articles/Validating_Email_Addresses.aspx
+// http://stackoverflow.com/questions/201323/what-is-the-best-regular-expression-for-validating-email-addresses/201378#201378
+var $ce796a2ddbfa30ee$export$a22775fa5e2eebd9;
+"use strict";
+var $ce796a2ddbfa30ee$var$tester = /^[-!#$%&'*+\/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+\/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/;
+$ce796a2ddbfa30ee$export$a22775fa5e2eebd9 = function(email) {
+    if (!email) return false;
+    if (email.length > 254) return false;
+    var valid = $ce796a2ddbfa30ee$var$tester.test(email);
+    if (!valid) return false;
+    // Further checking of some things regex can't handle
+    var parts = email.split("@");
+    if (parts[0].length > 64) return false;
+    var domainParts = parts[1].split(".");
+    if (domainParts.some(function(part) {
+        return part.length > 63;
+    })) return false;
+    return true;
+};
+
+
 var $c79142a00dddfaab$exports = {};
 
 
@@ -4673,29 +4696,6 @@ var $e911e6171f65f725$exports = {};
 });
 
 
-// Thanks to:
-// http://fightingforalostcause.net/misc/2006/compare-email-regex.php
-// http://thedailywtf.com/Articles/Validating_Email_Addresses.aspx
-// http://stackoverflow.com/questions/201323/what-is-the-best-regular-expression-for-validating-email-addresses/201378#201378
-var $ce796a2ddbfa30ee$export$a22775fa5e2eebd9;
-"use strict";
-var $ce796a2ddbfa30ee$var$tester = /^[-!#$%&'*+\/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+\/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-*\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/;
-$ce796a2ddbfa30ee$export$a22775fa5e2eebd9 = function(email) {
-    if (!email) return false;
-    if (email.length > 254) return false;
-    var valid = $ce796a2ddbfa30ee$var$tester.test(email);
-    if (!valid) return false;
-    // Further checking of some things regex can't handle
-    var parts = email.split("@");
-    if (parts[0].length > 64) return false;
-    var domainParts = parts[1].split(".");
-    if (domainParts.some(function(part) {
-        return part.length > 63;
-    })) return false;
-    return true;
-};
-
-
 function $20b690834064e5ca$var$formHandler() {
     // This function gets called when the user presses the submit button on the form.
     // Get the values of our form inputs so we can check them and show them to the user.
@@ -4714,7 +4714,7 @@ function $20b690834064e5ca$var$formHandler() {
     return false;
     else if ($ce796a2ddbfa30ee$export$a22775fa5e2eebd9(email) == false) // Tell the user if email validation failed, the browsers can handle this one to some extent, but the browser
     // email filters is a little loose sometimes, hence the dependency.
-    var messageToUser = "<div class='alert alert-danger' role='alert'> Please make sure you have typed your email address in correctly </div>";
+    var messageToUser = "<div class='alert alert-danger' role='alert'> Please make sure you have entered your email address correctly </div>";
     else // Confirm to the user to tell them they have subscribed, we wouldn't want a confused user would we?
     var messageToUser = "<div class='alert alert-primary' role='alert'> Thanks for subscribing to our newsletter " + firstname + " " + lastname + ". We have sent an email to " + email + " to confirm your subscription.</div>";
     // Write the message to the #modalBody and show the modal, if there is no firstname, lastname or email entered

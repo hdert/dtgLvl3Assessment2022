@@ -343,6 +343,12 @@ textarea {
   margin-bottom: .5rem;
 }
 
+.form-text {
+  color: #6c757d;
+  margin-top: .25rem;
+  font-size: .875em;
+}
+
 .form-control {
   width: 100%;
   color: #212529;
@@ -1397,6 +1403,10 @@ textarea.form-control {
   display: none !important;
 }
 
+.border-danger {
+  border-color: #dc3545 !important;
+}
+
 .w-100 {
   width: 100% !important;
 }
@@ -1482,6 +1492,11 @@ textarea.form-control {
 
 .text-center {
   text-align: center !important;
+}
+
+.text-danger {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-danger-rgb), var(--bs-text-opacity) ) !important;
 }
 
 .text-light {
