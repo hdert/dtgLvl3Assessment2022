@@ -245,6 +245,11 @@ textarea {
   height: auto;
 }
 
+[type="search"] {
+  outline-offset: -2px;
+  -webkit-appearance: textfield;
+}
+
 ::-webkit-search-decoration {
   -webkit-appearance: none;
 }
