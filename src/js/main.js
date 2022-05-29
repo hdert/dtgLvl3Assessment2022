@@ -23,7 +23,7 @@ function formHandler() {
     // Tell the user if email validation failed, the browsers can handle this one to some extent, but the browser
     // email filters is a little loose sometimes, hence the dependency.
     var messageToUser =
-      "<div class='alert alert-danger' role='alert'> Please make sure you have typed your email address in correctly </div>";
+      "<div class='alert alert-danger' role='alert'> Please make sure you have entered your email address correctly </div>";
   } else {
     // Confirm to the user to tell them they have subscribed, we wouldn't want a confused user would we?
     var messageToUser =
