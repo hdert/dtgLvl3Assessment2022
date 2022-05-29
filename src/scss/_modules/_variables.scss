@@ -1,4 +1,4 @@
-/* Variables */
+/*! Variables */
 $highlight-two: #8bdeff;
 $highlight-one: #26466f;
 $body-bg: $highlight-two;
@@ -12,14 +12,14 @@ $font-family-sans-serif: "Montserrat", system-ui, -apple-system, "Segoe UI",
   Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
   "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 $input-bg: #fff;
-/* Bootstrap */
-/* Configuration */
+/*! Bootstrap */
+/*! Configuration */
 @import "../../../node_modules/bootstrap/scss/functions";
 @import "../../../node_modules/bootstrap/scss/variables";
 @import "../../../node_modules/bootstrap/scss/mixins";
 @import "../../../node_modules/bootstrap/scss/utilities";
 
-/* Layout & components */
+/*! Layout & components */
 @import "../../../node_modules/bootstrap/scss/root";
 @import "../../../node_modules/bootstrap/scss/reboot";
 @import "../../../node_modules/bootstrap/scss/type";
@@ -51,8 +51,8 @@ $input-bg: #fff;
 // @import "../../../node_modules/bootstrap/scss/spinners";
 // @import "../../../node_modules/bootstrap/scss/offcanvas";
 
-/* Helpers */
+/*! Helpers */
 @import "../../../node_modules/bootstrap/scss/helpers";
 
-/* Utilities */
+/*! Utilities */
 @import "../../../node_modules/bootstrap/scss/utilities/api";
