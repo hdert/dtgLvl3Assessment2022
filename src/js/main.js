@@ -3,7 +3,7 @@
 
 import Modal from "bootstrap/js/dist/modal";
 // Import email-validator for email validation.
-var validator = require("email-validator");
+import * as validator from "email-validator";
 
 function formHandler() {
   // This function gets called when the user presses the submit button on the form.
