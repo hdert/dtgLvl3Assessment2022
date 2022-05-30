@@ -321,11 +321,6 @@ textarea {
   }
 }
 
-.col-8 {
-  width: 66.6667%;
-  flex: none;
-}
-
 .col-12 {
   width: 100%;
   flex: none;
@@ -335,6 +330,11 @@ textarea {
 
   .col-sm-6 {
     width: 50%;
+    flex: none;
+  }
+
+  .col-sm-8 {
+    width: 66.6667%;
     flex: none;
   }
 }
