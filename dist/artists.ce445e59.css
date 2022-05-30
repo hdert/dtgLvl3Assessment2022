@@ -41,7 +41,7 @@
   --bs-black-rgb: 0, 0, 0;
   --bs-body-color-rgb: 33, 37, 41;
   --bs-body-bg-rgb: 139, 222, 255;
-  --bs-font-sans-serif: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --bs-font-sans-serif: "Montserrat", system-ui, -apple-system, "Segoe UI", roboto, "Helvetica Neue", arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, .15), rgba(255, 255, 255, 0));
   --bs-body-font-family: var(--bs-font-sans-serif);
@@ -1555,39 +1555,39 @@ textarea.form-control {
   }
 }
 
-#headerImage {
+#header-image {
   height: calc(66vh - 56px);
   background: #8bdeff url("logo.969ff6f7.png") center / 192px space;
 }
 
-#heroTextContainer {
+#hero-text-container {
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   background-color: rgba(255, 255, 255, .59);
   border-radius: 100px 100px 10px;
   transition: all 1s ease-out;
-  -webkit-animation: heroTextContainer-text-shadow-move 1.5s ease-out;
-          animation: heroTextContainer-text-shadow-move 1.5s ease-out;
+  -webkit-animation: hero-text-container-text-shadow-move 1.5s ease-out;
+          animation: hero-text-container-text-shadow-move 1.5s ease-out;
 }
 
-#heroText {
+#hero-text {
   text-shadow: 5px 5px #8bdeff;
+  -webkit-animation: hero-text-text-shadow-move 1.5s ease-out hero-text-text-move 1.5s ease-out;
+          animation: hero-text-text-shadow-move 1.5s ease-out hero-text-text-move 1.5s ease-out;
   font-size: 7vw;
   transition: all 1s ease-out;
-  -webkit-animation: heroText-text-shadow-move 1.5s ease-out, heroText-text-move 1.5s ease-out;
-          animation: heroText-text-shadow-move 1.5s ease-out, heroText-text-move 1.5s ease-out;
 }
 
-#heroText:hover, #heroText:focus {
-  text-shadow: 10px 20px #8bdeff;
+#hero-text:hover, #hero-text:focus {
   color: rgba(0, 0, 0, 0);
+  text-shadow: 10px 20px #8bdeff;
 }
 
-#heroTextContainer:hover, #heroTextContainer:focus {
+#hero-text-container:hover, #hero-text-container:focus {
   border-radius: 100px 100px 100px 10px;
 }
 
-@-webkit-keyframes heroText-text-move {
+@-webkit-keyframes hero-text-text-move {
   0% {
     transform: translate(-160px, -120px);
   }
@@ -1597,7 +1597,7 @@ textarea.form-control {
   }
 }
 
-@keyframes heroText-text-move {
+@keyframes hero-text-text-move {
   0% {
     transform: translate(-160px, -120px);
   }
@@ -1607,10 +1607,10 @@ textarea.form-control {
   }
 }
 
-@-webkit-keyframes heroText-text-shadow-move {
+@-webkit-keyframes hero-text-text-shadow-move {
   0% {
-    text-shadow: 160px 120px #8bdeff;
     color: rgba(0, 0, 0, 0);
+    text-shadow: 160px 120px #8bdeff;
   }
 
   75% {
@@ -1618,15 +1618,15 @@ textarea.form-control {
   }
 
   100% {
-    text-shadow: 5px 5px #8bdeff;
     color: #000;
+    text-shadow: 5px 5px #8bdeff;
   }
 }
 
-@keyframes heroText-text-shadow-move {
+@keyframes hero-text-text-shadow-move {
   0% {
-    text-shadow: 160px 120px #8bdeff;
     color: rgba(0, 0, 0, 0);
+    text-shadow: 160px 120px #8bdeff;
   }
 
   75% {
@@ -1634,12 +1634,12 @@ textarea.form-control {
   }
 
   100% {
-    text-shadow: 5px 5px #8bdeff;
     color: #000;
+    text-shadow: 5px 5px #8bdeff;
   }
 }
 
-@-webkit-keyframes heroTextContainer-text-shadow-move {
+@-webkit-keyframes hero-text-container-text-shadow-move {
   0% {
     transform: translate(160px, 120px);
   }
@@ -1649,7 +1649,7 @@ textarea.form-control {
   }
 }
 
-@keyframes heroTextContainer-text-shadow-move {
+@keyframes hero-text-container-text-shadow-move {
   0% {
     transform: translate(160px, 120px);
   }
