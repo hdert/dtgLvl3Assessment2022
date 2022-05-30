@@ -11,7 +11,7 @@
 
 @mixin gen-carousel-image-center($centers...) {
   @for $number from 1 through list.length($centers) {
-    #carousel-item-#{$number} > img {
+    #carousel-item-#{$number} > picture > img {
       object-position: list.nth(list.nth($centers, $number), 1)
         list.nth(list.nth($centers, $number), 2);
     }

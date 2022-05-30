@@ -17,6 +17,12 @@ mixin carousel-indicator-generator(...slides)
         aria-label=slide
       )
     - n++;
+mixin picture-generator(item)
+  picture
+    source(srcset=item[0] + "?as=avif", type="image/avif")
+    source(srcset=item[0] + "?as=webp", type="image/webp")
+    source(srcset=item[0] + "?as=jpeg", type="image/jpeg")
+    img.d-block.w-100(src=item[0] + "?as=jpeg", alt=item[1])
 mixin carousel-item-generator(...items)
   - var n = 0;
   each item in items 
@@ -25,16 +31,16 @@ mixin carousel-item-generator(...items)
         .carousel-caption.d-block.px-3
           h5= item[2]
           p.d-none.d-md-block= item[3]
-        img.d-block.w-100(src=item[0], alt=item[1])
+        +picture-generator(item)
     else if item.length == 2
       .carousel-item(id="carousel-item-" + (n + 1))
-        img.d-block.w-100(src=item[0], alt=item[1])
+        +picture-generator(item)
     else
       .carousel-item(id="carousel-item-" + (n + 1))
         .carousel-caption.d-block.px-3
           h5= item[2]
           p.d-none.d-md-block= item[3]
-        img.d-block.w-100(src=item[0], alt=item[1])
+        +picture-generator(item)
     - n++;
 
 doctype html 
