@@ -1683,36 +1683,36 @@ textarea.form-control {
   background-color: rgba(0, 0, 0, .518);
 }
 
-.carousel-item > .carousel-caption + img {
+.carousel-item > .carousel-caption + picture > img {
   -o-object-fit: cover;
      object-fit: cover;
   height: calc(100vh - 56px);
   margin: auto;
 }
 
-.carousel-item > img {
+.carousel-item > picture > img {
   -o-object-fit: contain;
      object-fit: contain;
   height: calc(100vh - 56px);
   margin: auto;
 }
 
-#carousel-item-1 > img {
+#carousel-item-1 > picture > img {
   -o-object-position: 50% 38.72%;
      object-position: 50% 38.72%;
 }
 
-#carousel-item-2 > img {
+#carousel-item-2 > picture > img {
   -o-object-position: 50% 46.79%;
      object-position: 50% 46.79%;
 }
 
-#carousel-item-3 > img {
+#carousel-item-3 > picture > img {
   -o-object-position: 50% 34.88%;
      object-position: 50% 34.88%;
 }
 
-#carousel-item-4 > img {
+#carousel-item-4 > picture > img {
   -o-object-position: 50% 29.76%;
      object-position: 50% 29.76%;
 }
