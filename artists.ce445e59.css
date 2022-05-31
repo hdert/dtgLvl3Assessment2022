@@ -1603,10 +1603,10 @@ textarea.form-control {
 
 #hero-text {
   text-shadow: 5px 5px #8bdeff;
-  -webkit-animation: hero-text-text-shadow-move 1.5s ease-out hero-text-text-move 1.5s ease-out;
-          animation: hero-text-text-shadow-move 1.5s ease-out hero-text-text-move 1.5s ease-out;
   font-size: 7vw;
   transition: all 1s ease-out;
+  -webkit-animation: hero-text-text-shadow-move 1.5s ease-out, hero-text-text-move 1.5s ease-out;
+          animation: hero-text-text-shadow-move 1.5s ease-out, hero-text-text-move 1.5s ease-out;
 }
 
 #hero-text:hover, #hero-text:focus {
