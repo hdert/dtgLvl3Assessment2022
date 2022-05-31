@@ -40,14 +40,14 @@ html(lang="en")
           +formInput("lastname", "Last Name", "Smith", "text", true)
           +formInput("email", "Email", "joesmith@example.com", "email", true)
           +formInput("phonenumber", "Phone Number", "027123456789", "tel", false)
-          +formInput("dateofbirth", "Date of Birth", "2000-01-01", "date", false)
+          +formInput("dateofbirth", "Date of Birth", null, "date", false)
           .mb-3.form-check
             input#agreetotos.form-check-input(
               type="checkbox",
               name="agreetotos",
               required
             )
-            label(for="#agreetotos") I agree to the
+            label(for="agreetotos") I agree to the
             |
             |
             a#tos(href="#", onclick="tosHandler();") Terms of Service

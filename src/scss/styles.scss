@@ -24,8 +24,8 @@
   font-size: 7vw;
   text-shadow: 5px 5px $highlight-two;
   transition: 1s ease-out;
-  animation: hero-text-text-shadow-move 1.5s ease-out hero-text-text-move 1.5s
-    ease-out;
+  animation: hero-text-text-shadow-move 1.5s ease-out,
+    hero-text-text-move 1.5s ease-out;
 }
 
 /*! Hero text animations */
