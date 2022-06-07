@@ -1586,12 +1586,12 @@ textarea.form-control {
   }
 }
 
-#header-image {
+.header-image {
   height: calc(66vh - 56px);
   background: #8bdeff url("logo.969ff6f7.png") center / 192px space;
 }
 
-#hero-text-container {
+.hero-text-container {
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   background-color: rgba(255, 255, 255, .59);
@@ -1601,7 +1601,7 @@ textarea.form-control {
           animation: hero-text-container-text-shadow-move 1.5s ease-out;
 }
 
-#hero-text {
+.hero-text {
   text-shadow: 5px 5px #8bdeff;
   font-size: 7vw;
   transition: all 1s ease-out;
@@ -1609,12 +1609,12 @@ textarea.form-control {
           animation: hero-text-text-shadow-move 1.5s ease-out, hero-text-text-move 1.5s ease-out;
 }
 
-#hero-text:hover, #hero-text:focus {
+.hero-text:hover, .hero-text:focus {
   color: rgba(0, 0, 0, 0);
   text-shadow: 10px 20px #8bdeff;
 }
 
-#hero-text-container:hover, #hero-text-container:focus {
+.hero-text-container:hover, .hero-text-container:focus {
   border-radius: 100px 100px 100px 10px;
 }
 
