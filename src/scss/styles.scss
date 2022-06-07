@@ -6,13 +6,13 @@
 /*! Three out of the following four css styles use a color that is sourced from */
 
 /*! a sass variable (efficient tools and techniques). */
-#header-image {
+.header-image {
   height: calc(66vh - 56px);
   background: $highlight-two url("../img/logo.png") center space;
   background-size: 192px;
 }
 
-#hero-text-container {
+.hero-text-container {
   background-color: rgba(255, 255, 255, 0.588);
   border-radius: 100px 100px 10px;
   transition: 1s ease-out;
@@ -20,7 +20,7 @@
   backdrop-filter: blur(4px);
 }
 
-#hero-text {
+.hero-text {
   font-size: 7vw;
   text-shadow: 5px 5px $highlight-two;
   transition: 1s ease-out;
@@ -30,14 +30,14 @@
 
 /*! Hero text animations */
 
-#hero-text:hover,
-#hero-text:focus {
+.hero-text:hover,
+.hero-text:focus {
   color: rgba(0, 0, 0, 0);
   text-shadow: 10px 20px $highlight-two;
 }
 
-#hero-text-container:hover,
-#hero-text-container:focus {
+.hero-text-container:hover,
+.hero-text-container:focus {
   border-radius: 100px 100px 100px 10px;
 }
 
